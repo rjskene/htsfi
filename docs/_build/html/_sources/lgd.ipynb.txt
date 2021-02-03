@@ -16,6 +16,8 @@
     "\n",
     "And so, recovery costs and asset value are key considerations when trying to both predict losses and actually operate a fico.\n",
     "\n",
+    "<p class=\"p-break\"></p>\n",
+    "\n",
     "### Recovery Costs ###\n",
     "\n",
     "+ can be projected fairly easily, in particular if a 3rd party is contracted for repossession and/or storage and/or sale\n",
@@ -26,6 +28,8 @@
     "### Asset Value ###\n",
     "\n",
     "The value of an asset has several features that add uncertainty LGD.\n",
+    "\n",
+    "<p class=\"p-break\"></p>\n",
     "\n",
     "**Changes over Time**\n",
     "\n",
@@ -167,26 +171,13 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 3,
+   "execution_count": null,
    "id": "driven-trace",
    "metadata": {
     "nbsphinx": "hidden",
     "scrolled": true
    },
-   "outputs": [
-    {
-     "data": {
-      "application/javascript": [
-       "IPython.notebook.save_notebook()\n"
-      ],
-      "text/plain": [
-       "<IPython.core.display.Javascript object>"
-      ]
-     },
-     "metadata": {},
-     "output_type": "display_data"
-    }
-   ],
+   "outputs": [],
    "source": [
     "%%javascript\n",
     "IPython.notebook.save_notebook()"
