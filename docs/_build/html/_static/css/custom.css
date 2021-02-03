@@ -1,0 +1,80 @@
+/* Adjustments to template */
+img {
+  display: block !important;
+  margin: 0 auto !important;
+  width: 35em !important;
+}
+div.prompt > .highlight > pre {
+  display: none !important;
+}
+div.nbinput.container div.prompt, div.nboutput.container div.prompt  {
+  width: 0px !important;
+}
+.wy-nav-content {
+  padding: .9em 2em !important;
+  max-width: 1000px !important;
+}
+
+h1 {
+  color: rgb(66,128,180) !important;
+  margin-block-start: 0px !important;
+  margin-block-end: 0px !important;
+}
+
+hr.header-line {
+  margin: 2px 0 24px 0 !important;
+  color: rgb(66,128,180) !important;
+  border-top: 1px solid rgb(66,128,180);
+}
+
+h2 {
+  color: rgb(66,128,180) !important;
+  margin-block-start: 0.25em !important;
+  margin-block-end: 0.25em !important;
+}
+
+/* Custom Elements */
+table.fi-table  {
+  border: .1em solid rgba(233,234,235,.7) !important;
+  margin-left: auto;
+  margin-right: auto;
+}
+th.fi-table  {
+  border: .1em solid rgba(233,234,235,.7) !important;
+  border-bottom: .1em solid rgb(167, 169, 170) !important;
+  font-family:Arial, sans-serif !important;
+  font-size: 1.3em !important;
+  font-weight:bold !important;
+  overflow:hidden !important;
+  word-break:normal !important;
+  text-align: center !important;
+}
+td.fi-table  {
+  border: .1em solid rgba(233,234,235,.7) !important;
+  font-family:Arial, sans-serif !important; 
+  font-size: 1.2em !important;
+  overflow:hidden !important;
+  word-break:normal !important;
+  padding: 1.1em;
+  text-align: center !important;  
+}
+
+th.loan-table  {
+  border: .1em solid rgba(233,234,235,.7) !important;
+  border-bottom: .1em solid rgb(167, 169, 170) !important;
+  font-family:Arial, sans-serif !important;
+  font-size: 1.6em !important;
+  font-weight:bold !important;
+  overflow:hidden !important;
+  word-break:normal !important;
+  text-align: center !important;
+}
+td.loan-table  {
+  border: .1em solid rgba(233,234,235,.7) !important;
+  font-family:Arial, sans-serif !important; 
+  font-size: 1.4em !important;
+  overflow:hidden !important;
+  word-break:normal !important;
+  padding: 1.1em;
+  text-align: center !important;  
+}

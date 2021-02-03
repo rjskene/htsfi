@@ -1,0 +1,1215 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Predicting Losses &mdash; FICOFORD  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"equationNumbers": {"autoNumber": "AMS", "useLabelIds": true}}, "tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="LGD" href="lgd.html" />
+    <link rel="prev" title="FICOs for Dumm … I mean, Engineers" href="fico.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> FICOFORD
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="fico.html">FICOs for Dumm … I mean, Engineers</a></li>
+</ul>
+<p class="caption"><span class="caption-text">LOSS MODEL</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Predicting Losses</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Why-Should-Fico-Care-About-Predicting-Losses?">Why Should Fico Care About Predicting Losses?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#The-3-Components-of-Loss">The 3 Components of Loss</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#Loss-Distribution">Loss Distribution</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Process-to-Determine-Loss-Distribution">Process to Determine Loss Distribution</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#Probability-of-Default">Probability of Default</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#Loss-Given-Default">Loss Given Default</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#Loss-Models">Loss Models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Model-1:-PD-/-LGD-Uncorrelated">Model 1: PD / LGD Uncorrelated</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Model-2:-PD-/-LGD-Correlated">Model 2: PD / LGD Correlated</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#Simulating-Losses">Simulating Losses</a></li>
+</ul>
+<p class="caption"><span class="caption-text">COMPONENTS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="lgd.html">LGD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pricing.html">Loan Pricing</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">FICOFORD</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Predicting Losses</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/loss.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container,
+div.nbinput.container div.prompt,
+div.nbinput.container div.input_area,
+div.nbinput.container div[class*=highlight],
+div.nbinput.container div[class*=highlight] pre,
+div.nboutput.container,
+div.nboutput.container div.prompt,
+div.nboutput.container div.output_area,
+div.nboutput.container div[class*=highlight],
+div.nboutput.container div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    background: #f5f5f5;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="Predicting-Losses">
+<h1>Predicting Losses<a class="headerlink" href="#Predicting-Losses" title="Permalink to this headline">¶</a></h1>
+<hr class="header-line"/><p>In this section, we will build a sample loss model to predict losses.</p>
+<div class="section" id="Why-Should-Fico-Care-About-Predicting-Losses?">
+<h2>Why Should Fico Care About Predicting Losses?<a class="headerlink" href="#Why-Should-Fico-Care-About-Predicting-Losses?" title="Permalink to this headline">¶</a></h2>
+<p><strong>1. Equity</strong></p>
+<ul class="simple">
+<li><p>How much equity does Fico need to absorb potential lossess?</p></li>
+<li><p>Fico <em>expects</em> to have average losses of <code class="docutils literal notranslate"><span class="pre">x</span></code> per year, <strong>but</strong> in any one year, Fico might experience losses <code class="docutils literal notranslate"><span class="pre">10x</span></code> or <code class="docutils literal notranslate"><span class="pre">100x</span></code>.</p></li>
+<li><p>Fico needs an equity base to support those extreme years.</p></li>
+</ul>
+<p><strong>2. Pricing</strong></p>
+<ul class="simple">
+<li><p>Loan losses are Fico’s largest expense.</p></li>
+<li><p>Interest rate to charge borrower is a function of how much we expect to lose.</p></li>
+</ul>
+<p><strong>3. Return</strong></p>
+<ul class="simple">
+<li><p>Is this loan worthwhile?</p></li>
+<li><p>Is this <em>entire loan portfolio</em> worthwhile?</p></li>
+</ul>
+</div>
+<div class="section" id="The-3-Components-of-Loss">
+<h2>The 3 Components of Loss<a class="headerlink" href="#The-3-Components-of-Loss" title="Permalink to this headline">¶</a></h2>
+<p><strong>Exposure at Default, EAD</strong></p>
+<ul class="simple">
+<li><p>whatever is owed (principal only)</p></li>
+</ul>
+<p><strong>Probability of Default, PD</strong></p>
+<ul class="simple">
+<li><p>the likelihood a borrower will not repay the loan</p></li>
+</ul>
+<p><strong>Loss Given Default, LGD</strong></p>
+<ul class="simple">
+<li><p>the actual amount of loss on the loan, if the borrower defaults.</p></li>
+</ul>
+<p>The expected average loss on a loan portfolio <em>in a given year</em> is a very simple formula:</p>
+<div class="math notranslate nohighlight">
+\[EAD * PD * LGD\]</div>
+</div>
+</div>
+<div class="section" id="Loss-Distribution">
+<h1>Loss Distribution<a class="headerlink" href="#Loss-Distribution" title="Permalink to this headline">¶</a></h1>
+<hr class="header-line"/><div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="_images/loss_3_0.png" src="_images/loss_3_0.png" />
+</div>
+</div>
+<p>To predict losses, we need to map our portfolio onto a <strong>Loss Distribution</strong>.</p>
+<p>The parameters of the distribution are unique to each loan book at any moment in time based on:</p>
+<ul class="simple">
+<li><p>number of loans</p></li>
+<li><p>size of loans</p></li>
+<li><p>ratings of different borrowers</p></li>
+<li><p>value of assets under each loan</p></li>
+<li><p>correlation of defaults and correlation of defaults / asset values</p></li>
+</ul>
+<p>Here are some key terms we will use:</p>
+<p><strong>Beta Distribution</strong></p>
+<ul class="simple">
+<li><p>the distribution of losses in any given year is generally believed to follow a Beta distribution, where very small losses occur the vast majority of years and very large losses occur sporadically.</p></li>
+</ul>
+<p><strong>Expected Loss (EL)</strong></p>
+<ul class="simple">
+<li><p>the mean value of the Loss distribution</p></li>
+<li><p>if the loan book is correctly modelled, i.e. borrower PDs are accurate, equipment market values are accurate etc., this is the average amount of losses Fico should experience in the long-term.</p></li>
+</ul>
+<p><strong>Unexpected Loss (UL)</strong></p>
+<ul class="simple">
+<li><p>one standard deviation from the mean of the Loss distribution</p></li>
+<li><p>varies by loan book but typically loan losses should be less than UL in 80% of years</p></li>
+</ul>
+<p><strong>Economic Capital (EC)</strong></p>
+<ul class="simple">
+<li><p>amount of equity required to absorb extreme events</p></li>
+<li><p>sometimes set using Value-at-Risk (VaR)</p>
+<ul>
+<li><p><a class="reference external" href="https://helda.helsinki.fi/bof/bitstream/handle/123456789/7797/128554.pdf?sequence=1">agencies typically consider VaR as a factor for determining a bank’s credit rating</a></p></li>
+<li><p>a 99.95% VaR can be interpreted as “<em>this level of losses is expected in 5 out of every 10,000 years</em>”</p></li>
+</ul>
+</li>
+</ul>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<table class="fi-table"><thead><tr><th class="fi-table">S&P</th><th class="fi-table">VaR</th></tr></thead><tbody><tr><td class="fi-table">AA</td><td class="fi-table">99.97%</td></tr><tr><td class="fi-table">A</td><td class="fi-table">99.95%</td></tr><tr><td class="fi-table">BBB+</td><td class="fi-table">99.9%</td></tr></tbody></table></div>
+</div>
+<p><strong>Other Considerations</strong></p>
+<ul class="simple">
+<li><p>Correlation of Defaults:</p>
+<ul>
+<li><p>exogeneous factors may result in borrowers defaulting at the same time and more than they would independently. This increases losses at those times.</p></li>
+</ul>
+</li>
+<li><p>Correlation of PD and LGD:</p>
+<ul>
+<li><p>simplest (and prevailing) assumption is PD and LGD are uncorrelated</p></li>
+<li><p>more realistic assumption is PD and LGD are correlated</p></li>
+</ul>
+</li>
+<li><p>3rd party providers</p>
+<ul>
+<li><p>data and modelling tools can be purchased from 3rd parties</p></li>
+<li><p>Examples:</p>
+<ul>
+<li><p><a class="reference external" href="https://theanalyticsboutique.com/demos/">https://theanalyticsboutique.com/demos/</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="section" id="Process-to-Determine-Loss-Distribution">
+<h2>Process to Determine Loss Distribution<a class="headerlink" href="#Process-to-Determine-Loss-Distribution" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Determine <strong>PD</strong>, <strong>LGD</strong>, LGD distribution, PD correlations, PD/LGD correlations (if any).</p></li>
+<li><p>Find <strong>EL</strong> and <strong>UL</strong>.</p></li>
+<li><p>Run Monte Carlo simulations. Determine the <strong>Loss Distribution</strong> of the portfolio.</p></li>
+<li><p>Find best fit for beta distribution</p></li>
+<li><p>Find <strong>Economic Capital</strong> through <strong>VaR</strong> (for whatever credit rating desired).</p></li>
+<li><p>Fico needs equity equal to <em>at least</em> the <strong>Economic Capital</strong>.</p></li>
+<li><p>Extreme Value Theory can be used to protect against even greater tail risks.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="Probability-of-Default">
+<h1>Probability of Default<a class="headerlink" href="#Probability-of-Default" title="Permalink to this headline">¶</a></h1>
+<hr class="header-line"/><ul class="simple">
+<li><p>determined through analysis of company financial statements, business/industry risks, and exogenous factors like economic activity.</p></li>
+<li><p>bond/credit ratings are categorized based on PD. The S&amp;P ratings and their analogous PDs are shown below:</p></li>
+</ul>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<table class="fi-table"><thead><tr><th class="fi-table">S&P</th><th class="fi-table">AAA</th><th class="fi-table">AA+</th><th class="fi-table">AA</th><th class="fi-table">AA-</th><th class="fi-table">A+</th><th class="fi-table">A</th><th class="fi-table">A-</th><th class="fi-table">BBB+</th><th class="fi-table">BBB</th><th class="fi-table">BBB-</th><th class="fi-table">BB+</th><th class="fi-table">BB</th><th class="fi-table">BB-</th><th class="fi-table">B+</th><th class="fi-table">B</th><th class="fi-table">B-</th><th class="fi-table">CCC+</th><th class="fi-table">CCC-</th><th class="fi-table">CC</th></tr></thead><tbody><tr><td class="fi-table">PD</td><td class="fi-table">0.01%</td><td class="fi-table">0.03%</td><td class="fi-table">0.04%</td><td class="fi-table">0.04%</td><td class="fi-table">0.05%</td><td class="fi-table">0.08%</td><td class="fi-table">0.10%</td><td class="fi-table">0.13%</td><td class="fi-table">0.17%</td><td class="fi-table">0.24%</td><td class="fi-table">0.34%</td><td class="fi-table">0.53%</td><td class="fi-table">0.73%</td><td class="fi-table">1.40%</td><td class="fi-table">2.45%</td><td class="fi-table">6.00%</td><td class="fi-table">9.57%</td><td class="fi-table">16.72%</td><td class="fi-table">33.32%</td></tr></tbody></table></div>
+</div>
+<ul class="simple">
+<li><p>credit ratings BBB+ and greater are typically considered investment grade.</p></li>
+<li><p>rating BBB to CCC+/CCC are consider “junk” or speculative.</p></li>
+<li><p>CCC+/CCC or worse is typically considered a default</p></li>
+</ul>
+<ul class="simple">
+<li><p>The distribution of ratings within a portfolio are often unique to the portfolio: what borrowers are targeted? what is risk management quality? etc.</p></li>
+<li><p>For now, it is useful to assume a portfolio with normally distributed PDs with the following parameters:</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(\mu = .44\)</span>%</p></li>
+<li><p><span class="math notranslate nohighlight">\(\sigma = .2\)</span>%</p></li>
+</ul>
+</li>
+</ul>
+<p>This portfolio would have a distribution as per below. Note the x-axis increases exponentially, so the normal distribution is skewed.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">warnings</span>
+
+<span class="k">with</span> <span class="n">warnings</span><span class="o">.</span><span class="n">catch_warnings</span><span class="p">():</span>
+    <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+
+    <span class="n">mu</span> <span class="o">=</span> <span class="o">.</span><span class="mi">0044</span>
+    <span class="n">std</span> <span class="o">=</span> <span class="o">.</span><span class="mi">002</span>
+
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">10000</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">std</span><span class="p">)</span>
+
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;k-&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+
+    <span class="n">ratlabs</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;AAA&#39;</span><span class="p">,</span> <span class="s1">&#39;A-&#39;</span><span class="p">,</span> <span class="s1">&#39;B+&#39;</span><span class="p">,</span> <span class="s1">&#39;CCC+&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">]</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">([</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">val</span><span class="si">:</span><span class="s1">.2%</span><span class="si">}</span><span class="se">\n</span><span class="si">{</span><span class="n">ratlab</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">val</span><span class="p">,</span> <span class="n">ratlab</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">get_xticks</span><span class="p">(),</span> <span class="n">ratlabs</span><span class="p">)])</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Portfolio Distribution of PD&#39;</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="_images/loss_11_0.png" src="_images/loss_11_0.png" />
+</div>
+</div>
+<p>The portfolio, on average, would have “junk” exposure, but we can see above that the majority of borrowers would be rated stronger.</p>
+</div>
+<div class="section" id="Loss-Given-Default">
+<h1>Loss Given Default<a class="headerlink" href="#Loss-Given-Default" title="Permalink to this headline">¶</a></h1>
+<hr class="header-line"/><p>A detailed discussion of <a class="reference internal" href="lgd.html"><span class="doc">LGD is here</span></a>. For this exercise, we are just looking for a credible way to model it.</p>
+<ul class="simple">
+<li><p>often modelled based on the Beta distribution, as per <a class="reference external" href="http://www.defaultrisk.com/_pdf6j4/losscalc_methodology.pdf">Moody’s LossCalc</a></p></li>
+<li><p>the Beta distribution isn’t great for leases, because it does not allow for recovery gains. <a class="reference external" href="https://www.cairn.info/revue-finance-2005-2-page-35.html">More complex models should be considered for leasing</a>.</p></li>
+<li><p>There is limited data available on equipment recoveries, but <a class="reference external" href="https://www.cairn.info/revue-finance-2005-2-page-35.html">one study shows recoveries in various European countries between 1976 and 2002</a>. The average LGD and standard deviation varied quite widely, so judging by the wind we’ll go with:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mu_{LGD} = .4
+\\\sigma_{LGD} = .4\end{split}\]</div>
+<ul class="simple">
+<li><p>the Beta distribution is generally parameterized as follows:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\beta(\alpha, \beta)\]</div>
+<ul class="simple">
+<li><p>but it can also be built from the mean and standard deviation:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mu = \frac{\alpha}{\alpha+\beta}
+\\\sigma^2 = \frac{\alpha\beta}{(\alpha + \beta)^2(\alpha+\beta+1)}\end{split}\]</div>
+<p>We have some helper functions written derive <span class="math notranslate nohighlight">\(\alpha\)</span>/<span class="math notranslate nohighlight">\(\beta\)</span> from <span class="math notranslate nohighlight">\(\mu\)</span>/<span class="math notranslate nohighlight">\(\sigma\)</span>.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">mu</span> <span class="o">=</span> <span class="o">.</span><span class="mi">4</span>
+<span class="n">std</span> <span class="o">=</span> <span class="o">.</span><span class="mi">4</span>
+
+<span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">beta_params_from_descript</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">std</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<p>This results in alpha = 0.2 and beta = 0.3. Plug those into Beta(0.2, 0.3) and you get the following LGD distribution:</p>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="_images/loss_17_0.png" src="_images/loss_17_0.png" />
+</div>
+</div>
+<p>We can see that the majority of defaults result in almost no loss or an entire loss.</p>
+</div>
+<div class="section" id="Loss-Models">
+<h1>Loss Models<a class="headerlink" href="#Loss-Models" title="Permalink to this headline">¶</a></h1>
+<hr class="header-line"/><p>A loss model must:</p>
+<ul class="simple">
+<li><p>determine expected losses at loan level</p></li>
+<li><p>determine expected losses at portfolio level, and how to aggregrate based on correlated outcomes.</p></li>
+</ul>
+<p>Loss models have developed increasing complexity in the past two decades but regulatory requirements of banks and other FIs still center around Basel 2, which has a basic assumption that PD and LGD are uncorrelated. This assumption has been questioned more recently (and intuitively seems weak).</p>
+<p>We will show examples for both (though the latter is much more complicated and so the example is partial).</p>
+<div class="section" id="Model-1:-PD-/-LGD-Uncorrelated">
+<h2>Model 1: PD / LGD Uncorrelated<a class="headerlink" href="#Model-1:-PD-/-LGD-Uncorrelated" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Assumes that the loss given default on the loan is <em>not</em> related to the default. Picture an asset whose value does <em>not</em> change regardless of economic circumstances.</p></li>
+<li><p>The model <em>does</em> account for correlation of default among obligors. i.e. there is some exogneous factor(s) that cause bororwers to default at the same time. This makes sense intuitively.</p></li>
+</ul>
+<p><strong>Single Loan</strong></p>
+<div class="math notranslate nohighlight">
+\[EL = EAD * PD * LGD\]</div>
+<p>often shown for each dollar of EAD as:</p>
+<p><span class="math">\begin{equation}
+UL = EAD * \sqrt(PD*\sigma^2_{LGD} + LGD^2*\sigma^2_{PD})
+\\\sigma^2_{PD} = (PD)(1-PD)
+\\\sigma^2_{LGD} = \frac{\alpha\beta}{(\alpha+\beta)^2(\alpha+\beta+1)}
+\end{equation}</span></p>
+<p><strong>Multiple Loans</strong></p>
+<p><span class="math">\begin{equation}
+EL_p = \sum^n_{i=1}{EAD_i*PD_i*LGD_i}
+\\UL_p = \sqrt{\sum_i\sum_j\rho_{ij}w_iw_jUL_iUL_j}
+\end{equation}</span></p>
+<p>where:</p>
+<p><span class="math">\begin{equation}
+p_{i,j} = 1 \text{ if }i=j
+\\w_i = EAD_i / EAD_p
+\\EAD_p = \sum^n_{i=0}EAD_i
+\\UL_i = EAD_i * \sqrt(PD^2_i*\sigma^2_{LGD, i} + LGD^2_i*\sigma^2_{PD,i})
+\end{equation}</span></p>
+<p><strong>Example</strong></p>
+<p>Assumptions:</p>
+<ul class="simple">
+<li><p>5 loans</p></li>
+<li><p>$500K total outstanding</p></li>
+<li><p>PD is Bernoulli variable, however, generated randomly via Normal distribution as per <a class="reference external" href="#Probability-of-Default">above</a>.</p></li>
+<li><p>LGD is Beta variable as per <a class="reference external" href="#Loss-Given-Default">above</a></p></li>
+<li><p>all loans are for the same asset, therefore, have same LGD distribution</p></li>
+<li><p>PD and LGD are uncorrelated</p></li>
+</ul>
+<p>First, we create the loan exposures.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Loan Portfolio</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">loans_t</span> <span class="o">=</span> <span class="mi">5</span><span class="o">*</span><span class="mi">10</span><span class="o">**</span><span class="mi">5</span>
+<span class="n">randloans</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
+<span class="n">EAD</span> <span class="o">=</span> <span class="p">(</span><span class="n">randloans</span> <span class="o">/</span> <span class="n">randloans</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span><span class="o">*</span><span class="n">loans_t</span>
+<span class="n">w</span> <span class="o">=</span> <span class="n">EAD</span> <span class="o">/</span> <span class="n">EAD</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="nb">print</span> <span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Confirming Portfolio Size: </span><span class="si">{</span><span class="n">EAD</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="si">:</span><span class="s1">,.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Confirming Portfolio Size: 500,000.00
+</pre></div></div>
+</div>
+<p>Now, we created the PDs for each loan.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># PD for each borrower/loan.</span>
+<span class="n">pd_mu</span> <span class="o">=</span> <span class="mf">0.0044</span>
+<span class="n">pd_std</span> <span class="o">=</span> <span class="mf">0.002</span>
+<span class="n">p_of_d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">pd_mu</span><span class="p">,</span> <span class="n">pd_std</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+<span class="n">count</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">p_of_d</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">PDs</span><span class="p">)</span>
+<span class="n">binned</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">digitize</span><span class="p">(</span><span class="n">p_of_d</span><span class="p">,</span> <span class="n">bins</span><span class="p">)</span>
+<span class="n">rats</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">SPs</span><span class="p">)[</span><span class="n">binned</span><span class="p">]</span>
+
+<span class="n">p_of_d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">p_of_d</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">p_of_d</span><span class="p">)</span>
+
+<span class="n">pd_var</span> <span class="o">=</span> <span class="n">bern</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">p_of_d</span><span class="p">)</span>     <span class="c1"># PD for each individual loan is bernoulli distributed and has its own variance.</span>
+</pre></div>
+</div>
+</div>
+<p>And the LGDs for each loan.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># LGD</span>
+<span class="n">lgd_mu</span> <span class="o">=</span> <span class="o">.</span><span class="mi">4</span>
+<span class="n">lgd_std</span> <span class="o">=</span> <span class="o">.</span><span class="mi">4</span>
+
+<span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">beta_params_from_descript</span><span class="p">(</span><span class="n">lgd_mu</span><span class="p">,</span> <span class="n">lgd_std</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">lgd_freeze</span> <span class="o">=</span> <span class="n">beta</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="n">lgd</span> <span class="o">=</span> <span class="n">lgd_freeze</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
+
+<span class="n">lgd_var</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">lgd</span><span class="o">.</span><span class="n">var</span><span class="p">(),</span> <span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>Then EL and UL can be calculated as:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">el</span> <span class="o">=</span> <span class="n">EAD</span><span class="o">*</span><span class="n">p_of_d</span><span class="o">*</span><span class="n">lgd</span>
+<span class="n">ul</span> <span class="o">=</span> <span class="n">loan_ul</span><span class="p">(</span><span class="n">EAD</span><span class="p">,</span> <span class="n">p_of_d</span><span class="p">,</span> <span class="n">lgd</span><span class="p">,</span> <span class="n">pd_var</span><span class="p">,</span> <span class="n">lgd_var</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>We show the results for each individual loan below:</p>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<table><thead><tr><th class="loan-table"></th><th class="loan-table">Loan 1</th> <th class="loan-table">Loan 2</th> <th class="loan-table">Loan 3</th> <th class="loan-table">Loan 4</th> <th class="loan-table">Loan 5</th></tr></thead><tbody><tr><td class="loan-table">Amount</td><td class="loan-table">23,718.28</td> <td class="loan-table">168,445.90</td> <td class="loan-table">113,717.28</td> <td class="loan-table">84,950.20</td> <td class="loan-table">109,168.34</td></tr><tr><td class="loan-table">Probability<br>of<br>Default (PD)</td><td class="loan-table">0.07%</td> <td class="loan-table">0.54%</td> <td class="loan-table">0.62%</td> <td class="loan-table">0.54%</td> <td class="loan-table">0.64%</td></tr><tr><td class="loan-table">S&P<br>Rating</td><td class="loan-table">A</td> <td class="loan-table">BB-</td> <td class="loan-table">BB-</td> <td class="loan-table">BB-</td> <td class="loan-table">BB-</td></tr><tr><tr><td class="loan-table">Loss Given<br>Default (LGD)</td><td class="loan-table">0.02%</td> <td class="loan-table">0.48%</td> <td class="loan-table">99.92%</td> <td class="loan-table">0.00%</td> <td class="loan-table">45.95%</td></tr><td class="loan-table">$\sigma^2_{PD}$</td><td class="loan-table">0.07%</td> <td class="loan-table">0.54%</td> <td class="loan-table">0.61%</td> <td class="loan-table">0.54%</td> <td class="loan-table">0.64%</td></tr><tr><td class="loan-table">$\sigma^2_{LGD}$</td><td class="loan-table">15.62%</td> <td class="loan-table">15.62%</td> <td class="loan-table">15.62%</td> <td class="loan-table">15.62%</td> <td class="loan-table">15.62%</td></tr><tr><td class="loan-table">Expected<br>Loss (EL)</td><td class="loan-table">0.00</td> <td class="loan-table">4.39</td> <td class="loan-table">700.59</td> <td class="loan-table">0.00</td> <td class="loan-table">323.24</td></tr><tr><td class="loan-table">Unexpected<br>Loss (UL)</td><td class="loan-table">244.10</td> <td class="loan-table">4,982.22</td> <td class="loan-table">9,572.53</td> <td class="loan-table">2,464.30</td> <td class="loan-table">6,859.86</td></tr></tbody></table></div>
+</div>
+<p>Now, we must combine the above results to find the likely performance of the entire portfolio. Remember when trying to determine the <strong>Loss Distribubion</strong>, as per formulations above,</p>
+<ul class="simple">
+<li><p>expected losses are <em>additive</em></p></li>
+<li><p>unexpected losses are <em>not additive</em></p></li>
+<li><p>probability of default may be correlated, thereby impacting unexpected loss</p></li>
+</ul>
+<p>We will consider three scenarios:</p>
+<p><strong>PD entirely uncorrelated</strong></p>
+<p><span class="math notranslate nohighlight">\(\rho_{ij} \text{ for all } i,j = 0\)</span></p>
+<p><strong>PD all perfectly correlated</strong></p>
+<p><span class="math notranslate nohighlight">\(\rho_{ij} \text{ for all } i,j = 1\)</span></p>
+<p><strong>PD correlated</strong></p>
+<p><span class="math notranslate nohighlight">\(.2 &lt; \rho_{ij} &lt; .8 \text{ where }i \neq j\)</span></p>
+<p>Scenarios 1 and 2 can be developed rather easily.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+
+<span class="n">port_ul1</span> <span class="o">=</span> <span class="n">port_ul_w_corr</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">ul</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="n">port_ul2</span> <span class="o">=</span> <span class="n">port_ul_w_corr</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">ul</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>For Scenario 3, we must prepare a correlation matrix. First we randomly generate the correlation factors.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">.</span><span class="mi">2</span><span class="p">,</span> <span class="o">.</span><span class="mi">8</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>Then build a 2-D correlation matrix using our hepler function <code class="docutils literal notranslate"><span class="pre">corrs_to_corrmat</span></code>.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">around</span><span class="p">(</span><span class="n">corrs_to_corrmat</span><span class="p">(</span><span class="n">p</span><span class="p">),</span> <span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[1.   0.78 0.76 0.61 0.72]
+ [0.78 1.   0.61 0.72 0.39]
+ [0.76 0.61 1.   0.39 0.39]
+ [0.61 0.72 0.39 1.   0.39]
+ [0.72 0.39 0.39 0.39 1.  ]]
+</pre></div></div>
+</div>
+<p>Then, multiply the correlation matrix by the weights and individual expected losses. This is all done inside the helper function <code class="docutils literal notranslate"><span class="pre">port_ul_w_corr</span></code>.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">port_ul3</span> <span class="o">=</span> <span class="n">port_ul_w_corr</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">ul</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+<span class="n">port_uls</span> <span class="o">=</span> <span class="p">[</span><span class="n">port_ul1</span><span class="p">,</span> <span class="n">port_ul2</span><span class="p">,</span> <span class="n">port_ul3</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<p>This results in the below:</p>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<table><thead><tr><th class="loan-table"></th><th class="loan-table">Scenario 1</th> <th class="loan-table">Scenario 2</th> <th class="loan-table">Scenario 3</th></tr></thead><tbody><tr><td class="loan-table">Amount</td><td class="loan-table">2,000,000.00</td> <td class="loan-table">2,000,000.00</td> <td class="loan-table">2,000,000.00</td></tr><tr><td class="loan-table">EL, portfolio</td><td class="loan-table">1,028.23</td> <td class="loan-table">1,028.23</td> <td class="loan-table">1,028.23</td></tr><tr><td class="loan-table">UL, portfolio</td><td class="loan-table">11,811.79</td> <td class="loan-table">26,411.96</td> <td class="loan-table">21,258.19</td></tr></tbody></table></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+So, in our hypothetical \$2MM loan portfolio, we should expect loan losses of 0.05% per year on average.</div>
+</div>
+<p>This is below the market average in the US, seen below and found <a class="reference external" href="https://www.elfaonline.org/data/mlfi-25-monthly-leasing-and-finance-index/view-mlfi/monthly-leasing-and-finance-index-december-2020">here</a>, but still pretty good for some rough math.</p>
+<p><img alt="Image Not Loaded" class="no-scaled-link" src="_images/dec2020_lease_charge_offs.png" style="width: 800px;" /></p>
+<p>But we should also note that the Unexpected Loss could be 10x-20x more than the Expected Loss in a given year. So should we hold enough capital to absorb the Unexpected Loss? Nope, we should hold even more than that.</p>
+</div>
+<div class="section" id="Model-2:-PD-/-LGD-Correlated">
+<h2>Model 2: PD / LGD Correlated<a class="headerlink" href="#Model-2:-PD-/-LGD-Correlated" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>To be fleshed in greater detail.</p></li>
+<li><p><a class="reference external" href="https://www.moodysanalytics.com/-/media/whitepaper/before-2011/10-05-02-implications-of-PD-lgd-correlation-in-a-portfolio-setting.PDf">PD and LGD are likely correlated</a></p></li>
+<li><p>current accepted approaches to risk modelling to not account for this (e.g. Basel 2)</p></li>
+<li><p>usually considered when the value of the asset is dependent on the economic cycle</p></li>
+<li><p>models of PD/LGD correlation are generally very complicated. we will use simple assumptions to show the effect on expected loss.</p></li>
+<li><p>to account for this, EL can incorporate a covariance term for PD / LGD</p></li>
+<li><p>a borrower may default because of exogeneous circumstances that also impact the market value of the asset</p></li>
+<li><p>a borrower that defaults may be more likely to depreciate an asset through improper use (i.e. poor maintenance, etc).</p></li>
+</ul>
+<p>Assumes:</p>
+<ul class="simple">
+<li><p>Linear relationship between PD and LGD</p></li>
+<li><p><span class="math notranslate nohighlight">\(R^2\)</span> = .5 [per historical data detailed in Figure 1 here(<a class="reference external" href="file:///Users/spindicate/Downloads/SSRN-id1297797.pdf">file:///Users/spindicate/Downloads/SSRN-id1297797.pdf</a>)</p></li>
+<li><p>all defaults and all assets have the same correlation of PD and LGD</p></li>
+</ul>
+<p>The main adjustment to the loss model is the addition of a covariance term to the Expected Loss.</p>
+<div class="math notranslate nohighlight">
+\[EL = PD*LGD + cov(PD, LGD)\]</div>
+<p>where:</p>
+<div class="math notranslate nohighlight">
+\[COV(PD,LGD) = \rho_{PD,LGD}*\sigma_{PD}*\sigma_{LGD}\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[\rho_{PD,LGD} = R = \sqrt{.5}\]</div>
+<p>where:</p>
+<div class="math notranslate nohighlight">
+\[cov(PD, LGD) = \rho_{PD,LGD}*\sigma_{PD}*\sigma_{LGD}\]</div>
+<div class="math notranslate nohighlight">
+\[UL = EAD * \sqrt(PD^2*\sigma^2_{LGD} + LGD^2*\sigma^2_{PD})\]</div>
+<p>For multiple loans:</p>
+<div class="math notranslate nohighlight">
+\[EL_p = \sum^n_{i=1}({EAD_i*PD_i*LGD_i + cov(PD_i, LGD_i)})\]</div>
+<div class="math notranslate nohighlight">
+\[\sum^n_{i=1}cov(PD_i, LGD_i) = n*cov(PD, LGD)\]</div>
+<div class="math notranslate nohighlight">
+\[EL_p = (\sum^n_{i=1}EAD_i*PD_i*LGD_i) + n*cov(PD, LGD)\]</div>
+<p>The UL is very complicated and should be derived via simulation.</p>
+</div>
+</div>
+<div class="section" id="Simulating-Losses">
+<h1>Simulating Losses<a class="headerlink" href="#Simulating-Losses" title="Permalink to this headline">¶</a></h1>
+<hr class="header-line"/><p>To map the <strong>Loss Distribution</strong>, we must simulate portfolio outcomes based on <strong>Loss Model</strong> we have constructed.</p>
+<p><strong>Goal</strong></p>
+<ol class="arabic simple">
+<li><p>Create a sample portfolio from our Loss Model</p></li>
+<li><p>Generate 50,000 simulations of the portfolio performance in a single year.</p></li>
+<li><p>The amount of loss in each simulation will be recorded.</p></li>
+<li><p>A Beta distribution will be fit to the loss record.</p></li>
+</ol>
+<p><strong>Process</strong></p>
+<ol class="arabic simple">
+<li><p>Generate <code class="docutils literal notranslate"><span class="pre">n=20</span></code> loans totaling $2MM aggregate</p></li>
+<li><p>Generate PD for each borrower/loan from normal distribution as per <a class="reference external" href="#Probability-of-Default">here</a>.</p></li>
+<li><p>Simulate default events</p>
+<ul class="simple">
+<li><p>generate <code class="docutils literal notranslate"><span class="pre">n</span></code> random standard normals, denoted <code class="docutils literal notranslate"><span class="pre">e</span></code></p></li>
+<li><p>generate correlation matrix of defaults across all borrowers for all simulations(<a class="reference external" href="https://www.amazon.ca/Internal-Credit-Risk-Models-Performance/dp/1899332030">values informed by Chapter 7, Appendix B of Ong</a>).</p></li>
+<li><p>find transformation matrix via Cholesky method</p></li>
+<li><p>correlated defaults found as <code class="docutils literal notranslate"><span class="pre">e_prime</span></code></p></li>
+<li><p>defaults occur when <code class="docutils literal notranslate"><span class="pre">e_prime</span></code> is less than the inverse normal of PD</p></li>
+</ul>
+</li>
+<li><p>For each default, generate an LGD based on the distribution used earlier</p>
+<ul class="simple">
+<li><p>where the borrower has not defaulted, <code class="docutils literal notranslate"><span class="pre">LGD</span> <span class="pre">=</span> <span class="pre">0%</span></code>.</p></li>
+</ul>
+</li>
+</ol>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">invgauss</span>
+<span class="kn">from</span> <span class="nn">scipy.linalg</span> <span class="kn">import</span> <span class="n">eigh</span><span class="p">,</span> <span class="n">cholesky</span><span class="p">,</span> <span class="n">svd</span>
+
+<span class="c1"># Loan amounts</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">n_samples</span> <span class="o">=</span> <span class="mi">50000</span>
+
+<span class="n">loans_t</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="mi">10</span><span class="o">**</span><span class="mi">6</span>
+<span class="n">randloans</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
+<span class="n">EAD</span> <span class="o">=</span> <span class="p">(</span><span class="n">randloans</span> <span class="o">/</span> <span class="n">randloans</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span><span class="o">*</span><span class="n">loans_t</span>
+<span class="n">w</span> <span class="o">=</span> <span class="n">EAD</span> <span class="o">/</span> <span class="n">EAD</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+
+<span class="c1"># PD for each borrower/loan.</span>
+<span class="n">pd_mu</span> <span class="o">=</span> <span class="mf">0.0044</span>
+<span class="n">pd_std</span> <span class="o">=</span> <span class="mf">0.002</span>
+<span class="n">p_of_d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">pd_mu</span><span class="p">,</span> <span class="n">pd_std</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+<span class="n">p_of_d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">p_of_d</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">p_of_d</span><span class="p">)</span>
+<span class="n">pd_var</span> <span class="o">=</span> <span class="n">bern</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">p_of_d</span><span class="p">)</span>
+
+<span class="c1"># Correlation matrix</span>
+<span class="n">e</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">n_samples</span><span class="p">))</span> <span class="c1"># this creates defaults for ALL borrowers in ALL simulations</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">.</span><span class="mi">01</span><span class="p">,</span> <span class="o">.</span><span class="mi">13</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+<span class="n">corrmat</span> <span class="o">=</span> <span class="n">corrs_to_corrmat</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">cholesky</span><span class="p">(</span><span class="n">corrmat</span><span class="p">,</span> <span class="n">lower</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">e_prime</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+<span class="n">pd_inv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="n">p_of_d</span><span class="p">),</span> <span class="n">n_samples</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">n_samples</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>If <span class="math notranslate nohighlight">\(e\prime_{i,j} &lt; N^{-1}(PD_{i})\)</span> for any <span class="math notranslate nohighlight">\(i,j\)</span> then borrower <span class="math notranslate nohighlight">\(i\)</span> defaulted in simulation <span class="math notranslate nohighlight">\(j\)</span></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">in_default</span> <span class="o">=</span> <span class="n">e_prime</span> <span class="o">&lt;</span> <span class="n">pd_inv</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">in_default</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(50000, 20)
+</pre></div></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">in_default</span></code> is now a boolean array where <code class="docutils literal notranslate"><span class="pre">True</span></code> means default and <code class="docutils literal notranslate"><span class="pre">False</span></code> means no default for every borrower (20) in every simulation (50,000).</p>
+<p>As a check, we can sum all the defaults and divide by the total number of instances of borrowers (n borrowers X n_samples).</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">default_per</span> <span class="o">=</span> <span class="p">(</span><span class="n">e_prime</span> <span class="o">&lt;</span> <span class="n">pd_inv</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="p">(</span><span class="n">n</span><span class="o">*</span><span class="n">n_samples</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">default_per</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+0.003676
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<p>The process resulted in 0.37% defaults which aligns closely with the expected value of 0.44% mean of the Normal distribution used.</p>
+</div>
+</div>
+<p>Now, randomly generated LGDs for <em>only those loans that defaulted</em>.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># LGD</span>
+<span class="n">mean</span> <span class="o">=</span> <span class="o">.</span><span class="mi">4</span>
+<span class="n">lgd_std</span> <span class="o">=</span> <span class="o">.</span><span class="mi">4</span>
+<span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">beta_params_from_descript</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">lgd_std</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">lgds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="n">in_default</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="c1"># LGDs for all loans start at 0%</span>
+
+<span class="n">i_loss</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argwhere</span><span class="p">(</span><span class="n">in_default</span><span class="p">)</span>
+<span class="n">lgd_rands</span> <span class="o">=</span> <span class="n">beta</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">i_loss</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="c1"># Insert LGDs where there was a default</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i_loss</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">i_loss</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">lgds</span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="n">lgd_rands</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<p>Finally, we multiply the loan amounts by the LGDs to get the loss on every loan in every simulation.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">losses</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">EAD</span><span class="p">,</span> <span class="n">n_samples</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">n_samples</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span> <span class="o">*</span> <span class="n">lgds</span>
+
+<span class="n">simloss</span> <span class="o">=</span> <span class="n">losses</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">simloss_gt0</span> <span class="o">=</span> <span class="n">simloss</span><span class="p">[</span><span class="n">simloss</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="nb">print</span> <span class="p">(</span><span class="n">simloss</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">simloss_gt0</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+50000 3410
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<p><code class="docutils literal notranslate"><span class="pre">simloss_gt0</span></code> is now an array of simulations where loss was greater than 0. We can see from the above, out of 50,000 simulations, only 3,410 had <em>any</em> defaults. The small size of the portfolio skews the distribution and so simulations with losses of zero will be ignored for distribution fitting.</p>
+</div>
+</div>
+<p>A few key statistics from the data</p>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Average losses in each year: $2,756.37
+Average Percentage Losses: 0.14%
+Number of years with 0% loss: 46,590
+Average losses in years with loss: $40,416.01
+Average Percentage Losses in years with loss: 2.02%
+Maximum Loss in any Year: $348,030.24
+</pre></div></div>
+</div>
+<p>Now we can fit the distribution and plot it against the simulation.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">with</span> <span class="n">warnings</span><span class="o">.</span><span class="n">catch_warnings</span><span class="p">():</span>
+    <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+
+    <span class="n">lnspc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">simloss_gt0</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="nb">len</span><span class="p">(</span><span class="n">bins</span><span class="p">))</span>
+    <span class="n">params</span> <span class="o">=</span> <span class="n">beta</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">simloss_gt0</span><span class="p">)</span>
+    <span class="n">ld</span> <span class="o">=</span> <span class="n">beta</span><span class="p">(</span><span class="o">*</span><span class="n">params</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="_images/loss_66_0.png" src="_images/loss_66_0.png" />
+</div>
+</div>
+<p>FINALLY, we can find the amount of equity Fico should hold at the 99.95% VAR level of our loss distribution, good enough for a AA credit rating.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span> <span class="p">(</span><span class="n">ld</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">0.9995</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+272079.72695651004
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<p>If Fico has a $2MM loan portfolio with the characteristics described here, it should have equity of at least 272,079.73.</p>
+<p>Looking closer at the distribution, in the vast majority of cases this amount would protect against solvency, however, it must be noted that in 3 out of the 50,000 simulations, the loss would exceed the equity base and Fico would be in default.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="lgd.html" class="btn btn-neutral float-right" title="LGD" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="fico.html" class="btn btn-neutral float-left" title="FICOs for Dumm … I mean, Engineers" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, rskene.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

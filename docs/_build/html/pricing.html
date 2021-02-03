@@ -1,0 +1,631 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Loan Pricing &mdash; FICOFORD  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"equationNumbers": {"autoNumber": "AMS", "useLabelIds": true}}, "tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="LGD" href="lgd.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> FICOFORD
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="fico.html">FICOs for Dumm … I mean, Engineers</a></li>
+</ul>
+<p class="caption"><span class="caption-text">LOSS MODEL</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="loss.html">Predicting Losses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="loss.html#Loss-Distribution">Loss Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="loss.html#Probability-of-Default">Probability of Default</a></li>
+<li class="toctree-l1"><a class="reference internal" href="loss.html#Loss-Given-Default">Loss Given Default</a></li>
+<li class="toctree-l1"><a class="reference internal" href="loss.html#Loss-Models">Loss Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="loss.html#Simulating-Losses">Simulating Losses</a></li>
+</ul>
+<p class="caption"><span class="caption-text">COMPONENTS</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="lgd.html">LGD</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Loan Pricing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Capital-Driven">Capital Driven</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Market-Driven">Market Driven</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">FICOFORD</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Loan Pricing</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/pricing.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container,
+div.nbinput.container div.prompt,
+div.nbinput.container div.input_area,
+div.nbinput.container div[class*=highlight],
+div.nbinput.container div[class*=highlight] pre,
+div.nboutput.container,
+div.nboutput.container div.prompt,
+div.nboutput.container div.output_area,
+div.nboutput.container div[class*=highlight],
+div.nboutput.container div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    background: #f5f5f5;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="Loan-Pricing">
+<h1>Loan Pricing<a class="headerlink" href="#Loan-Pricing" title="Permalink to this headline">¶</a></h1>
+<hr class="header-line"/><p>Pricing of a loan, just like any other product, is influenced by both the cost to produce and the market.</p>
+<p>And so there are two methods to deriving an interest rate for a loan:</p>
+<ol class="arabic simple">
+<li><p>Capital-Driven:</p>
+<ul class="simple">
+<li><p>what interest rate is required to justify the allocation of capital?</p></li>
+</ul>
+</li>
+<li><p>Market-Driven:</p>
+<ul class="simple">
+<li><p>what rate is implied in the market?</p></li>
+<li><p>derived from various market-related exposures</p></li>
+</ul>
+</li>
+</ol>
+<p>The two methods are <em>not</em> exclusive. Fico should consider both approaches when loan pricing, in particular, if:</p>
+<p><span class="math notranslate nohighlight">\(\text{Market-Driven Rate} &gt;&gt;&gt; \text{Capital Driven Rate}\)</span></p>
+<ul class="simple">
+<li><p>Fico either has some competitive advantage <em>or</em> it is underpricing risk</p></li>
+</ul>
+<p>or if:</p>
+<p><span class="math notranslate nohighlight">\(\text{Capital Driven Rate} &gt;&gt;&gt; \text{Market-Driven Rate}\)</span></p>
+<ul class="simple">
+<li><p>Fico has a competitive disadvantage <em>or</em> it is overpricing risk</p></li>
+</ul>
+<div class="section" id="Capital-Driven">
+<h2>Capital Driven<a class="headerlink" href="#Capital-Driven" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Loan income is compared to a <em>hurdle rate</em>, which can be set as the Weighted Average Cost of Capital (WACC) for the company/investor/project.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\text{WACC} = r_{tgt} = w_{debt}*r_{debt} + w_{equity}*r_{equity}\]</div>
+<p><span class="math notranslate nohighlight">\(\qquad\qquad\qquad\qquad\qquad\textit{where:}\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\\w_{debt} = \frac{D}{D+E}\end{split}\]</div>
+<p><span class="math notranslate nohighlight">\(\qquad\)</span>or simply as the cost of equity, to take the investor perspective:</p>
+<div class="math notranslate nohighlight">
+\[r_{tgt} = r_{equity}\]</div>
+<p><span class="math notranslate nohighlight">\(\qquad\)</span> The hurdle rate may also be set relative to other investment opportunities (and thereby seen as an opportunity cost).</p>
+<ul class="simple">
+<li><p>The interest rate required <em>for an individual loan</em> to meet the hurdle rate is:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{alignat*}{0}
+\qquad\text{int}_i = \frac{r_{tgt}*(D_i+E_i) + exp_i}{EAD_i}
+\\\textit{where:}
+\\\qquad exp_i = \text{expected losses + non-recovery related expenses like salaries, taxes, etc.}
+\\\qquad D_i, E_i = \text{debt and equity contribution required for the individual loan}
+\\\qquad D_i + E_i = EAD_i
+\end{alignat*}\end{split}\]</div>
+<p><strong>Equity Only</strong></p>
+<p>We will estimate pricing for loans where Fico is funded entirely by equity.</p>
+<p>Assume:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(r_{tgt} = .12\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(exp_i = EL_i\)</span> i.e. Fico has no expenses save for loan losses</p></li>
+<li><p>Supported entirely by equity capital</p></li>
+</ul>
+<p>For this exercise, we created a new portfolio via the approach in <a class="reference internal" href="loss.html"><span class="doc">loss models</span></a> with the following properties:</p>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<p>Number of Loans: 20</p>
+<p>Total Outstanding: $2,000,000</p>
+<p>Expected Loss: $26,146.82</p>
+<p>Required Equity (99.95% VaR): $277,590.11</p>
+<p>With that portfolio distribution, we now want to consider how to price 3 loans in the portfolio. The loans have details as follows:</p>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<table><thead><tr><th class="loan-table"></th><th class="loan-table">Loan 1</th> <th class="loan-table">Loan 2</th> <th class="loan-table">Loan 3</th></tr></thead><tbody><tr><td class="loan-table">Amount</td><td class="loan-table">223,961.15</td> <td class="loan-table">150,198.19</td> <td class="loan-table">125,840.66</td></tr><tr><td class="loan-table">Probability<br>of<br>Default (PD)</td><td class="loan-table">0.37%</td> <td class="loan-table">0.52%</td> <td class="loan-table">0.78%</td></tr><tr><td class="loan-table">S&P<br>Rating</td><td class="loan-table">BB</td> <td class="loan-table">BB</td> <td class="loan-table">B+</td></tr><tr><tr><td class="loan-table">Loss Given<br>Default (LGD)</td><td class="loan-table">0.01%</td> <td class="loan-table">99.52%</td> <td class="loan-table">99.98%</td></tr><td class="loan-table">$\sigma^2_{PD}$</td><td class="loan-table">0.37%</td> <td class="loan-table">0.52%</td> <td class="loan-table">0.78%</td></tr><tr><td class="loan-table">$\sigma^2_{LGD}$</td><td class="loan-table">22.11%</td> <td class="loan-table">22.11%</td> <td class="loan-table">22.11%</td></tr><tr><td class="loan-table">Expected<br>Loss (EL)</td><td class="loan-table">0.09</td> <td class="loan-table">777.26</td> <td class="loan-table">983.11</td></tr><tr><td class="loan-table">Unexpected<br>Loss (UL)</td><td class="loan-table">6,400.90</td> <td class="loan-table">11,919.23</td> <td class="loan-table">12,251.68</td></tr></tbody></table></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">calc_ret</span><span class="p">(</span><span class="n">rev</span><span class="p">,</span> <span class="n">exp</span><span class="p">,</span> <span class="n">cap</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">rev</span> <span class="o">-</span> <span class="n">exp</span><span class="p">)</span> <span class="o">/</span> <span class="n">cap</span>
+
+<span class="k">def</span> <span class="nf">int_to_make_hurdle</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="n">loan</span><span class="p">,</span> <span class="n">equity</span><span class="p">,</span> <span class="n">hurdle</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">hurdle</span><span class="o">*</span><span class="n">equity</span> <span class="o">+</span> <span class="n">exp</span><span class="p">)</span> <span class="o">/</span> <span class="n">loan</span>
+
+<span class="n">hurdle</span> <span class="o">=</span> <span class="o">.</span><span class="mi">12</span>
+<span class="n">exp</span> <span class="o">=</span> <span class="n">el</span>
+
+<span class="n">debt</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">equity</span> <span class="o">=</span> <span class="n">loan_ead</span>
+<span class="n">req_int</span> <span class="o">=</span> <span class="n">int_to_make_hurdle</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="n">loan_ead</span><span class="p">,</span> <span class="n">equity</span><span class="p">,</span> <span class="n">hurdle</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<table class="loan-table"><thead><tr><th class="loan-table"></th><th class="loan-table">Loan 1</th> <th class="loan-table">Loan 2</th> <th class="loan-table">Loan 3</th></tr></thead><tbody><tr><td class="loan-table">Amount</td><td class="loan-table">223,961.15</td> <td class="loan-table">150,198.19</td> <td class="loan-table">125,840.66</td></tr><tr><td class="loan-table">Probability<br>of<br>Default (PD)</td><td class="loan-table">0.37%</td> <td class="loan-table">0.52%</td> <td class="loan-table">0.78%</td></tr><tr><td class="loan-table">Loss Given<br>Default (LGD)</td><td class="loan-table">0.01%</td> <td class="loan-table">99.52%</td> <td class="loan-table">99.98%</td></tr><tr><td class="loan-table">Expected<br>Loss (EL)</td><td class="loan-table">0.09</td> <td class="loan-table">777.26</td> <td class="loan-table">983.11</td></tr><tr><td class="loan-table">Required<br>Interest Rate</td><td class="loan-table">12.00%</td> <td class="loan-table">12.52%</td> <td class="loan-table">12.78%</td></tr></tbody></table></div>
+</div>
+<p>Unsurprisingly, even the lowest risk loan requires at least 12% interest rate. This is way above market for these types of loans.</p>
+<p>How then do we get a lower hurdle rate?</p>
+<ol class="arabic simple">
+<li><p>Greedy-ass investor lowers their expectations</p></li>
+<li><p>Use leverage</p></li>
+</ol>
+<p><strong>Mix of Debt and Equity</strong></p>
+<p>To show how we can incorporate leverage, we modify our assumptions as follows:</p>
+<p>Assume:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(r_{tgt} = .12\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(E_i = UL_i\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(D_i = EAD_i - E_i\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(exp_i = EL_i + D_i*r_{debt}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(r_{debt} = .03\)</span></p></li>
+</ul>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">equity</span> <span class="o">=</span> <span class="n">ul</span>
+<span class="n">debt</span> <span class="o">=</span> <span class="n">loan_ead</span> <span class="o">-</span> <span class="n">equity</span>
+
+<span class="n">cost_of_debt</span> <span class="o">=</span> <span class="o">.</span><span class="mi">03</span>
+<span class="n">int_on_debt</span> <span class="o">=</span> <span class="n">debt</span> <span class="o">*</span> <span class="n">cost_of_debt</span>
+<span class="n">exp</span> <span class="o">=</span> <span class="n">el</span> <span class="o">+</span> <span class="n">int_on_debt</span>
+
+<span class="n">req_int</span> <span class="o">=</span> <span class="n">int_to_make_hurdle</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="n">loan_ead</span><span class="p">,</span> <span class="n">equity</span><span class="p">,</span> <span class="n">hurdle</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<table class="loan-table"><thead><tr><th class="loan-table"></th><th class="loan-table">Loan 1</th> <th class="loan-table">Loan 2</th> <th class="loan-table">Loan 3</th></tr></thead><tbody><tr><td class="loan-table">Amount</td><td class="loan-table">223,961.15</td> <td class="loan-table">150,198.19</td> <td class="loan-table">125,840.66</td></tr><tr><td class="loan-table">Probability<br>of<br>Default (PD)</td><td class="loan-table">0.37%</td> <td class="loan-table">0.52%</td> <td class="loan-table">0.78%</td></tr><tr><td class="loan-table">Loss Given<br>Default (LGD)</td><td class="loan-table">0.01%</td> <td class="loan-table">99.52%</td> <td class="loan-table">99.98%</td></tr><tr><td class="loan-table">Expected<br>Loss (EL)</td><td class="loan-table">0.09</td> <td class="loan-table">777.26</td> <td class="loan-table">983.11</td></tr><tr><td class="loan-table">Required<br>Interest Rate</td><td class="loan-table">3.26%</td> <td class="loan-table">4.23%</td> <td class="loan-table">4.66%</td></tr></tbody></table></div>
+</div>
+<p>We can see how the mix of debt and equity has helped to improve loan pricing, which should make Fico more competitive in the market place.</p>
+</div>
+<div class="section" id="Market-Driven">
+<h2>Market Driven<a class="headerlink" href="#Market-Driven" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>TBD</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="lgd.html" class="btn btn-neutral float-left" title="LGD" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, rskene.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

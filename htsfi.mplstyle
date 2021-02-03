@@ -1,0 +1,8 @@
+figure.titlesize: 26
+figure.figsize: 10, 6
+font.size: 14
+axes.titlepad: 3
+axes.labelsize: 20
+axes.labelpad: 3
+xtick.labelsize: 16
+ytick.labelsize: 16

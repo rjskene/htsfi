@@ -1,0 +1,480 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>FICOs for Dumm … I mean, Engineers &mdash; FICOFORD  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"equationNumbers": {"autoNumber": "AMS", "useLabelIds": true}}, "tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Predicting Losses" href="loss.html" />
+    <link rel="prev" title="FICO’s For …" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> FICOFORD
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">FICOs for Dumm … I mean, Engineers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Info-Needed">Info Needed</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Why-does-Opco-need-a-Fico?">Why does Opco need a Fico?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Opco-Advantages">Opco Advantages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Loan-Types">Loan Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Evaluating-Investment-in-Fico">Evaluating Investment in Fico</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">LOSS MODEL</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="loss.html">Predicting Losses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="loss.html#Loss-Distribution">Loss Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="loss.html#Probability-of-Default">Probability of Default</a></li>
+<li class="toctree-l1"><a class="reference internal" href="loss.html#Loss-Given-Default">Loss Given Default</a></li>
+<li class="toctree-l1"><a class="reference internal" href="loss.html#Loss-Models">Loss Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="loss.html#Simulating-Losses">Simulating Losses</a></li>
+</ul>
+<p class="caption"><span class="caption-text">COMPONENTS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="lgd.html">LGD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pricing.html">Loan Pricing</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">FICOFORD</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>FICOs for Dumm … I mean, Engineers</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/fico.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="FICOs-for-Dumm-…-I-mean,-Engineers">
+<h1>FICOs for Dumm … I mean, Engineers<a class="headerlink" href="#FICOs-for-Dumm-…-I-mean,-Engineers" title="Permalink to this headline">¶</a></h1>
+<hr class="header-line"/><p><em>Note from the Author: too soon to start chirping???</em></p>
+<p>“Opco” is a group of operating companies in multiple locations that sell stuff</p>
+<p>“Fico” is a start-up finance company that finances the stuff that Opco sells</p>
+<div class="section" id="Info-Needed">
+<h2>Info Needed<a class="headerlink" href="#Info-Needed" title="Permalink to this headline">¶</a></h2>
+<p>Internally, must gather best estimate of:</p>
+<ul class="simple">
+<li><p>opportunity size</p></li>
+<li><p>market value depreciation curves of different equipment</p></li>
+<li><p>which products can be repo’d and which can’t?</p></li>
+<li><p>recovery costs</p></li>
+</ul>
+</div>
+<div class="section" id="Why-does-Opco-need-a-Fico?">
+<h2>Why does Opco need a Fico?<a class="headerlink" href="#Why-does-Opco-need-a-Fico?" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Increased sales for Opco</p>
+<ul class="simple">
+<li><p>new customers, new markets</p></li>
+<li><p>expanded resale market</p></li>
+<li><p>broader service offering for existing customers</p></li>
+</ul>
+</li>
+<li><p>Fico can be a profitable venture in its own right</p>
+<ul class="simple">
+<li><p>Opco has several advantages (vs true FIs) that should enhance profitability</p></li>
+<li><p>as Fico grows, potential for senior bank financing would further enhance Fico value</p></li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="Opco-Advantages">
+<h2>Opco Advantages<a class="headerlink" href="#Opco-Advantages" title="Permalink to this headline">¶</a></h2>
+<p>Opco has several advantages in financing versus standalone finance companies.</p>
+<p><strong>Existing Customer Relationships</strong></p>
+<ul class="simple">
+<li><p>financing product for long-term existing customers should decrease risk</p></li>
+<li><p>knowledge and comfort with customer’s business practices</p></li>
+<li><p>reputational incentive of customer to make loan payments</p></li>
+<li><p>reputational considerations work both ways, however. Fico must be very careful to treat good customers appropriately.</p></li>
+</ul>
+<p><strong>Understanding Asset Value</strong></p>
+<ul class="simple">
+<li><p>market experts have better visibility to ongoing asset values</p></li>
+<li><p>know what products are / are not susceptible to obsolescence</p></li>
+<li><p>better risk profile of loans</p></li>
+<li><p>better market pricing</p></li>
+</ul>
+<p><strong>Profit from Resale</strong></p>
+<ul class="simple">
+<li><p>if opco products can be resold, potential to profit <em>again</em> from a repossessed piece of equipment</p></li>
+<li><p>additional considerations:</p>
+<ul>
+<li><p>inventory management (handling, storage, impact on working capital)</p></li>
+<li><p>product obsolescence</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="Loan-Types">
+<h2>Loan Types<a class="headerlink" href="#Loan-Types" title="Permalink to this headline">¶</a></h2>
+<p>Fico will engage in a handful of loan types, distinguished by their structure and risk profile.</p>
+<p><strong>Core</strong></p>
+<ul class="simple">
+<li><p>bread and butter equipment finance</p></li>
+<li><p>serial numbered goods that are common and readily tradeable (where possible)</p></li>
+<li><p>sales for existing buildings, for parts and maintenance</p></li>
+<li><p>good portfolio diversification</p></li>
+<li><p>good asset value visibility</p></li>
+</ul>
+<p><strong>Environmental / Incentive-Induced</strong></p>
+<ul class="simple">
+<li><p>equipment purchases incentivized by government programs</p></li>
+<li><p>incentive typically involves a tax credit</p></li>
+<li><p>similar to core, with opportunity to transfer tax credit etc</p></li>
+<li><p>adds a wrinkle to the profit assessment (potentially much higher) and risk assessment (also potentially higher, as there is likely some uncertainty around whether customer will actually receive the incentive)</p></li>
+</ul>
+<p><strong>Off-Site Builds</strong></p>
+<ul class="simple">
+<li><p>larger, more complex products</p></li>
+<li><p>several additional complications offset by potential for greater profit</p></li>
+<li><p>what portion of the build is truly modular and can be repossessed?</p></li>
+<li><p>what is the prevailing resale market?</p></li>
+<li><p>How unique is any one modular build? Impacts how closely the ongoing value of any one build must be monitored.</p></li>
+<li><p>Consideration around security: is the modular build distinct from the building, legally speaking. Rights to building fixtures at times can be disputed. May need to confirm or get acknowledgements from first morgtagers</p></li>
+</ul>
+<p><strong>Other</strong></p>
+<ul class="simple">
+<li><p>Who knows????</p></li>
+</ul>
+</div>
+<div class="section" id="Evaluating-Investment-in-Fico">
+<h2>Evaluating Investment in Fico<a class="headerlink" href="#Evaluating-Investment-in-Fico" title="Permalink to this headline">¶</a></h2>
+<p>There are three main considerations that will be explored in greater detail below.</p>
+<ol class="arabic simple">
+<li><p>How much capital should Opco invest in Fico, both initially and ongoing?</p>
+<ul class="simple">
+<li><p>requires risk modeling, growth plan</p></li>
+</ul>
+</li>
+<li><p>What is return on invested capital in Fico?</p>
+<ul class="simple">
+<li><p>requires risk modeling, growth plan</p></li>
+<li><p>what is loan hurdle rate?</p></li>
+</ul>
+</li>
+<li><p>What is impact on Opco Working Capital and liquidity for other needs?</p>
+<ul class="simple">
+<li><p>must be incorporate in Opco projections</p></li>
+<li><p>investing any amount of capital will, at the time of investment, reduce working capital</p></li>
+<li><p>over time, fico can accumulate its own equity to reduce this strain</p></li>
+<li><p>over time, fico can obtain 3rd party funding</p></li>
+</ul>
+</li>
+</ol>
+<p><strong>Other Considerations / Needs</strong></p>
+<ul class="simple">
+<li><p>Loss Model</p></li>
+<li><p>Competitive Environment</p>
+<ul>
+<li><p>many of Opco’s competitors or businesses in related industry have finance divisions.</p>
+<ul>
+<li><p><a class="reference external" href="https://www.enercare.ca/sites/default/files/assets/library/builder/pdfs/3.2_enercare_commercial_hvac_contract_tc.pdf">Enercare Commercial Loan Contract</a></p></li>
+<li><p><a class="reference external" href="https://www.johnsoncontrols.com/-/media/jci/be/united-states/services-and-support/optimization-and-retrofit-services/files/be_brochure_energyretrofits.pdf?la=en&amp;hash=C9A5588A5E92E125EAAF7480C0DAECF42086FD0B">Johnson Controls focused on energy retrofits</a></p></li>
+<li><p><a class="reference external" href="https://www.johnsoncontrols.com/-/media/jci/be/united-states/services-and-support/financing/files/be_overview_equipfinancing.pdf?la=en">Johnson Controls financing brochure</a></p></li>
+</ul>
+</li>
+<li><p>what kind of credit facilities are available for these types of assets?</p>
+<ul>
+<li><p>not much in Canada but BDCs, private lenders, even Banks in the US</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Capital / Corporate Structure</p>
+<ul>
+<li><p>whose capital?</p>
+<ul>
+<li><p>how to track what Opcos are providing capital?</p></li>
+<li><p>should it be “allocated” (using brown dollars perhaps) according to use/need?</p></li>
+<li><p>should one opco act as the bank for all others?</p></li>
+<li><p>e.g. if loan made to Opco NY customer, use Opco NY capital, or Opco ONT capital, or mix?</p></li>
+</ul>
+</li>
+<li><p>fico as separate legal entity?</p>
+<ul>
+<li><p>more clearly see opco and fico liquidity positions</p></li>
+<li><p>more clearly see return on fico investments</p></li>
+<li><p>brown dollar fico-supported sales</p></li>
+<li><p>maybe has liability benefits?</p></li>
+<li><p>3rd party funding advantages / disadvantages?</p></li>
+</ul>
+</li>
+<li><p>Capital Mix</p>
+<ul>
+<li><p>ficos generally have high leverage (relative to opcos) with debt funding provided by depositors (banks) or other FIs (large equipment finance companies use securitization etc.).</p></li>
+<li><p>at startup, if Fico is funded entirely with Equity, its return hurdles will be too high to be competitive in the market.</p></li>
+<li><p>Solution: Opco could fund Fico with <em>both</em> Debt and Equity</p></li>
+<li><p>Opco debt would charge prevailing market interest rate</p></li>
+<li><p>In addition, Opco debt would receive any of the additional sales thanks to fico.</p></li>
+<li><p>Can model returns on both Opco Debt and Equity to see if appropriate.</p></li>
+<li><p>this mix can be explicitly achieved with separate companies, or achieved through brown dollars</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Regional Differences</p>
+<ul>
+<li><p>all regions in which Opco operates will have unique considerations in terms contracts, security, repossession, environmental incentives, etc.</p></li>
+</ul>
+</li>
+<li><p>Implementation</p>
+<ul>
+<li><p>start with existing customers</p>
+<ul>
+<li><p>strong, broader relationship should improved credit performance</p></li>
+</ul>
+</li>
+<li><p>start with smaller loans in core segments; increases likelihood of success in short term</p></li>
+<li><p>start in only one or two main jurisdictions</p></li>
+<li><p>start with very narrow sales team (maybe just one person)</p>
+<ul>
+<li><p>would reduce issues with communication</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Administration</p>
+<ul>
+<li><p>Documentation</p>
+<ul>
+<li><p>loan / lease agreement drafted by lawyer</p></li>
+<li><p>registration of financing statements (PPSA / UCC)</p></li>
+<li><p>PAD document</p></li>
+</ul>
+</li>
+<li><p>Collection</p>
+<ul>
+<li><p>could piggyback on current process for ARs</p></li>
+<li><p>may need to add bulk, periodic EFT pulls (via bank/Ceridian)</p></li>
+</ul>
+</li>
+<li><p>Realization</p>
+<ul>
+<li><p>should partner with 3rd party provider(s) to handle pickup, transportation, etc. as required</p></li>
+<li><p>questions around repossession: can go on property to collect? what process?</p></li>
+</ul>
+</li>
+<li><p>Storage</p>
+<ul>
+<li><p>does repossessed equipment get resold / stored / destroyed?</p></li>
+<li><p>If stored, where, for how long, and for how much?</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Lease or Loan?</p>
+<ul>
+<li><p>TBD</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="loss.html" class="btn btn-neutral float-right" title="Predicting Losses" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="index.html" class="btn btn-neutral float-left" title="FICO’s For …" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, rskene.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
