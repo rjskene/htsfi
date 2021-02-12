@@ -24,3 +24,9 @@ FICO's For ...
    
    lgd
    pricing
+
+.. toctree::
+   :caption: PROJECTIONS
+   :maxdepth: 3
+   
+   standard

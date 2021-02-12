@@ -116,6 +116,10 @@
 <li class="toctree-l1"><a class="reference internal" href="lgd.html">LGD</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pricing.html">Loan Pricing</a></li>
 </ul>
+<p class="caption"><span class="caption-text">PROJECTIONS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="standard.html">Standard Loans</a></li>
+</ul>
 
             
           
@@ -805,7 +809,7 @@ Confirming Portfolio Size: 500,000.00
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area rendered_html docutils container">
-<table><thead><tr><th class="loan-table"></th><th class="loan-table">Loan 1</th> <th class="loan-table">Loan 2</th> <th class="loan-table">Loan 3</th> <th class="loan-table">Loan 4</th> <th class="loan-table">Loan 5</th></tr></thead><tbody><tr><td class="loan-table">Amount</td><td class="loan-table">165,941.64</td> <td class="loan-table">130,306.26</td> <td class="loan-table">73,849.19</td> <td class="loan-table">64,210.91</td> <td class="loan-table">65,692.00</td></tr><tr><td class="loan-table">Probability<br>of<br>Default (PD)</td><td class="loan-table">0.46%</td> <td class="loan-table">0.55%</td> <td class="loan-table">0.47%</td> <td class="loan-table">0.48%</td> <td class="loan-table">0.54%</td></tr><tr><td class="loan-table">S&P<br>Rating</td><td class="loan-table">BB</td> <td class="loan-table">BB-</td> <td class="loan-table">BB</td> <td class="loan-table">BB</td> <td class="loan-table">BB-</td></tr><tr><tr><td class="loan-table">Loss Given<br>Default (LGD)</td><td class="loan-table">47.12%</td> <td class="loan-table">86.61%</td> <td class="loan-table">92.72%</td> <td class="loan-table">0.00%</td> <td class="loan-table">0.21%</td></tr><td class="loan-table">$\sigma^2_{PD}$</td><td class="loan-table">0.46%</td> <td class="loan-table">0.54%</td> <td class="loan-table">0.47%</td> <td class="loan-table">0.48%</td> <td class="loan-table">0.54%</td></tr><tr><td class="loan-table">$\sigma^2_{LGD}$</td><td class="loan-table">16.09%</td> <td class="loan-table">16.09%</td> <td class="loan-table">16.09%</td> <td class="loan-table">16.09%</td> <td class="loan-table">16.09%</td></tr><tr><td class="loan-table">Expected<br>Loss (EL)</td><td class="loan-table">359.72</td> <td class="loan-table">615.15</td> <td class="loan-table">322.54</td> <td class="loan-table">0.01</td> <td class="loan-table">0.76</td></tr><tr><td class="loan-table">Unexpected<br>Loss (UL)</td><td class="loan-table">8,932.95</td> <td class="loan-table">9,726.70</td> <td class="loan-table">5,276.31</td> <td class="loan-table">1,779.52</td> <td class="loan-table">1,956.23</td></tr></tbody></table></div>
+<table><thead><tr><th class="loan-table"></th><th class="loan-table">Loan 1</th> <th class="loan-table">Loan 2</th> <th class="loan-table">Loan 3</th> <th class="loan-table">Loan 4</th> <th class="loan-table">Loan 5</th></tr></thead><tbody><tr><td class="loan-table">Amount</td><td class="loan-table">62,345.61</td> <td class="loan-table">135,802.85</td> <td class="loan-table">20,896.48</td> <td class="loan-table">141,177.37</td> <td class="loan-table">139,777.69</td></tr><tr><td class="loan-table">Probability<br>of<br>Default (PD)</td><td class="loan-table">0.67%</td> <td class="loan-table">0.85%</td> <td class="loan-table">0.45%</td> <td class="loan-table">0.25%</td> <td class="loan-table">0.60%</td></tr><tr><td class="loan-table">S&P<br>Rating</td><td class="loan-table">BB-</td> <td class="loan-table">B+</td> <td class="loan-table">BB</td> <td class="loan-table">BB+</td> <td class="loan-table">BB-</td></tr><tr><tr><td class="loan-table">Loss Given<br>Default (LGD)</td><td class="loan-table">85.50%</td> <td class="loan-table">100.00%</td> <td class="loan-table">64.70%</td> <td class="loan-table">14.45%</td> <td class="loan-table">16.98%</td></tr><td class="loan-table">$\sigma^2_{PD}$</td><td class="loan-table">0.67%</td> <td class="loan-table">0.85%</td> <td class="loan-table">0.44%</td> <td class="loan-table">0.25%</td> <td class="loan-table">0.60%</td></tr><tr><td class="loan-table">$\sigma^2_{LGD}$</td><td class="loan-table">12.26%</td> <td class="loan-table">12.26%</td> <td class="loan-table">12.26%</td> <td class="loan-table">12.26%</td> <td class="loan-table">12.26%</td></tr><tr><td class="loan-table">Expected<br>Loss (EL)</td><td class="loan-table">356.93</td> <td class="loan-table">1,157.85</td> <td class="loan-table">60.34</td> <td class="loan-table">50.86</td> <td class="loan-table">142.56</td></tr><tr><td class="loan-table">Unexpected<br>Loss (UL)</td><td class="loan-table">5,029.40</td> <td class="loan-table">13,235.46</td> <td class="loan-table">1,222.41</td> <td class="loan-table">3,640.82</td> <td class="loan-table">5,847.78</td></tr></tbody></table></div>
 </div>
 <p>Now, we must combine the above results to find the likely performance of the entire portfolio. Remember when trying to determine the <strong>Loss Distribubion</strong>, as per formulations above:</p>
 <ul class="simple">
@@ -860,11 +864,11 @@ Confirming Portfolio Size: 500,000.00
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[[1.   0.52 0.5  0.52 0.39]
- [0.52 1.   0.52 0.39 0.73]
- [0.5  0.52 1.   0.73 0.73]
- [0.52 0.39 0.73 1.   0.73]
- [0.39 0.73 0.73 0.73 1.  ]]
+[[1.   0.67 0.43 0.57 0.58]
+ [0.67 1.   0.57 0.58 0.67]
+ [0.43 0.57 1.   0.67 0.67]
+ [0.57 0.58 0.67 1.   0.67]
+ [0.58 0.67 0.67 0.67 1.  ]]
 </pre></div></div>
 </div>
 <p>Then, multiply the correlation matrix by the weights and individual expected losses. This is all done inside the helper function <code class="docutils literal notranslate"><span class="pre">port_ul_w_corr</span></code>.</p>
@@ -883,13 +887,13 @@ Confirming Portfolio Size: 500,000.00
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area rendered_html docutils container">
-<table><thead><tr><th class="loan-table"></th><th class="loan-table">Scenario 1</th> <th class="loan-table">Scenario 2</th> <th class="loan-table">Scenario 3</th></tr></thead><tbody><tr><td class="loan-table">Amount</td><td class="loan-table">500,000.00</td> <td class="loan-table">500,000.00</td> <td class="loan-table">500,000.00</td></tr><tr><td class="loan-table">EL, portfolio</td><td class="loan-table">1,298.17</td> <td class="loan-table">1,298.17</td> <td class="loan-table">1,298.17</td></tr><tr><td class="loan-table">UL, portfolio</td><td class="loan-table">13,681.52</td> <td class="loan-table">30,592.81</td> <td class="loan-table">24,562.25</td></tr></tbody></table></div>
+<table><thead><tr><th class="loan-table"></th><th class="loan-table">Scenario 1</th> <th class="loan-table">Scenario 2</th> <th class="loan-table">Scenario 3</th></tr></thead><tbody><tr><td class="loan-table">Amount</td><td class="loan-table">500,000.00</td> <td class="loan-table">500,000.00</td> <td class="loan-table">500,000.00</td></tr><tr><td class="loan-table">EL, portfolio</td><td class="loan-table">1,768.53</td> <td class="loan-table">1,768.53</td> <td class="loan-table">1,768.53</td></tr><tr><td class="loan-table">UL, portfolio</td><td class="loan-table">14,176.43</td> <td class="loan-table">31,699.47</td> <td class="loan-table">26,443.56</td></tr></tbody></table></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area rendered_html docutils container">
-So, in our hypothetical \$2MM loan portfolio, we should expect loan losses of 0.26% per year on average.</div>
+So, in our hypothetical \$2MM loan portfolio, we should expect loan losses of 0.35% per year on average.</div>
 </div>
 <p>This is below the market average in the US, seen below and found <a class="reference external" href="https://www.elfaonline.org/data/mlfi-25-monthly-leasing-and-finance-index/view-mlfi/monthly-leasing-and-finance-index-december-2020">here</a>, but still pretty good for some rough math.</p>
 <p class="p-break"></p><p><img alt="Image Not Loaded" class="no-scaled-link" src="_images/dec2020_lease_charge_offs.png" style="width: 800px;" /></p>
@@ -910,7 +914,7 @@ So, in our hypothetical \$2MM loan portfolio, we should expect loan losses of 0.
 <p>Assumes:</p>
 <ul class="simple">
 <li><p>Linear relationship between PD and LGD</p></li>
-<li><p><span class="math notranslate nohighlight">\(R^2\)</span> = .5 [per historical data detailed in Figure 1 here(<a class="reference external" href="file:///Users/spindicate/Downloads/SSRN-id1297797.pdf">file:///Users/spindicate/Downloads/SSRN-id1297797.pdf</a>)</p></li>
+<li><p><span class="math notranslate nohighlight">\(R^2\)</span> = .5 <a class="reference external" href="https://www.researchgate.net/publication/24103510_The_Link_Between_Default_and_Recovery_Rates_Theory_Empirical_Evidence_and_Implications">per historical data detailed in Figure 1 here</a></p></li>
 <li><p>all defaults and all assets have the same correlation of PD and LGD</p></li>
 </ul>
 <p>The main adjustment to the loss model is the addition of a covariance term to the Expected Loss.</p>
@@ -1038,7 +1042,7 @@ So, in our hypothetical \$2MM loan portfolio, we should expect loan losses of 0.
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-0.004363
+0.004412
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -1090,14 +1094,14 @@ So, in our hypothetical \$2MM loan portfolio, we should expect loan losses of 0.
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-50000 3990
+50000 4090
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<p><code class="docutils literal notranslate"><span class="pre">simloss_gt0</span></code> is now an array of simulations where loss was greater than 0. We can see from the above, out of 50,000 simulations, only 3,990 had <em>any</em> defaults. The small size of the portfolio skews the distribution and so simulations with losses of zero will be ignored for distribution fitting.</p>
+<p><code class="docutils literal notranslate"><span class="pre">simloss_gt0</span></code> is now an array of simulations where loss was greater than 0. We can see from the above, out of 50,000 simulations, only 4,090 had <em>any</em> defaults. The small size of the portfolio skews the distribution and so simulations with losses of zero will be ignored for distribution fitting.</p>
 </div>
 </div>
 <p>A few key statistics from the data</p>
@@ -1106,12 +1110,12 @@ So, in our hypothetical \$2MM loan portfolio, we should expect loan losses of 0.
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Average losses in each year: $3,537.12
-Average Percentage Losses: 0.18%
-Number of years with 0% loss: 46,010
-Average losses in years with loss: $44,324.79
-Average Percentage Losses in years with loss: 2.22%
-Maximum Loss in any Year: $375,558.94
+Average losses in each year: $3,482.14
+Average Percentage Losses: 0.17%
+Number of years with 0% loss: 45,910
+Average losses in years with loss: $42,569.01
+Average Percentage Losses in years with loss: 2.13%
+Maximum Loss in any Year: $314,536.63
 </pre></div></div>
 </div>
 <p>Now we can fit the distribution and plot it against the simulation.</p>
@@ -1151,21 +1155,21 @@ Maximum Loss in any Year: $375,558.94
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-237743.81988503435
+384644.5777065969
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<p>If Fico has a $2MM loan portfolio with the characteristics described here, it should have equity of <em>at least</em> <strong>$237,743.82</strong>.</p>
+<p>If Fico has a $2MM loan portfolio with the characteristics described here, it should have equity of <em>at least</em> <strong>$384,644.58</strong>.</p>
 </div>
 </div>
 <p class="p=break"></p><div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<p>Looking closer at the distribution, in the vast majority of cases this amount would protect against solvency, however, it must be noted that in 19 out of the 50,000 simulations, the loss would exceed the equity base and Fico would be in default.</p>
+<p>Looking closer at the distribution, in the vast majority of cases this amount would protect against solvency, however, it must be noted that in 0 out of the 50,000 simulations, the loss would exceed the equity base and Fico would be in default.</p>
 </div>
 </div>
 </div>

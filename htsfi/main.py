@@ -1,6 +1,14 @@
 import os
 from shutil import copyfile
 import numpy as np
+from scipy.linalg import eig, eigh, cholesky, svd, eigvals, schur
+
+import pandas as pd
+import requests
+
+import matplotlib.pyplot as plt
+from matplotlib.dates import YearLocator, DateFormatter
+from matplotlib.ticker import FuncFormatter
 
 PDs = np.around(
     np.array([
@@ -9,10 +17,10 @@ PDs = np.around(
     ]) / 100,
 5)
 ODRs = [10, 21, 24, 27, 31, 34, 37, 41, 44, 47, 51, 54, 57, 61, 64, 67, 70, 75, 80]
-SPs = [
+SPs = np.array([
     'AAA', 'AA+', 'AA', 'AA-', 'A+', 'A', 'A-', 'BBB+', 'BBB', 'BBB-', 'BB+', 'BB',
     'BB-', 'B+', 'B', 'B-', 'CCC+', 'CCC-', 'CC'
-]
+])
 SPRAT_KEY = {rat: p_of_d for rat, p_of_d in zip(SPs, PDs)}
 PD_KEY = {v:k for k,v in SPRAT_KEY.items()}
 
@@ -90,27 +98,61 @@ def port_ul_w_corr(w, ul, p):
     
     return np.sqrt(lossmat.sum())    
 
-import os
-import glob
-import shutil
-from pathlib import Path
+def fix_corrmat(A):
+    LAM, S = schur(A)
+    LAM = np.diag(np.diagonal(LAM))
+    assert np.all(np.isclose(A, S @ LAM @ np.linalg.inv(S)))
 
-import matplotlib
+    LAM_p = np.where(LAM < 0, 0, LAM)
 
-def update_style():
-    mpldir = os.path.join(matplotlib.get_configdir(), 'stylelib')
+    scalmat = np.zeros_like(np.diag(LAM_p))
+    for i in range(S.shape[0]):
+        scalmat[i] = 1/np.sum(S[i]**2*np.diag(LAM_p))
+    T = np.diag(scalmat)
 
-    mplpath = Path(mpldir)
-    if not mplpath.exists():
-        mplpath.mkdir()
+    B = np.sqrt(T) @ S @ np.sqrt(LAM_p)
 
-    PATH = os.getcwd()
-    EXT = 'mplstyle'
-    style_files = glob.glob(os.path.join(PATH, f'*.{EXT}'))
+    A_p = B @ B.T
+    
+    return A_p
 
-    for _path_file in style_files:
-        _, fname = os.path.split(_path_file)
-        dest = os.path.join(mpldir, fname)
-        shutil.copy(_path_file, dest)
-        
-    matplotlib.pyplot.style.reload_library()
+def get_yields():
+    series = [
+        'DGS10',
+        'BAMLC0A1CAAAEY',
+        'BAMLC0A2CAAEY',
+        'BAMLC0A3CAEY',
+        'BAMLC0A4CBBBEY',
+        'BAMLH0A1HYBBEY',
+        'BAMLH0A2HYBEY',
+        'BAMLH0A3HYCEY',
+    ]
+
+    frames = [framer(ser) for ser in series]
+
+    yields = frames[0]
+    for f in frames[1:]:
+        yields = yields.merge(f, on='Date')
+    yields = yields.set_index('Date')
+
+    yields = yields.apply(numeric_coerce)
+    yields.columns = ['US10', 'AAA', 'AA', 'A', 'BBB', 'BB', 'B', 'C']
+    yields /= 100
+    
+    return yields
+
+def serurl(ser):
+    fredkey = '9bf850a7158087dbc63ff13ae0e4dc4a'
+    return f'https://api.stlouisfed.org/fred/series/observations?series_id={ser}&api_key={fredkey}&file_type=json'
+
+def framer(ser):
+    res = requests.get(serurl(ser))
+    df = pd.DataFrame(res.json()['observations'])
+    df = df.drop(['realtime_start', 'realtime_end'], axis=1)
+    df.columns = ['Date', ser]
+    df.Date = pd.to_datetime(df.Date)
+
+    return df
+
+def numeric_coerce(s):
+    return pd.to_numeric(s, errors='coerce')

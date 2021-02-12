@@ -42,6 +42,7 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Standard Loans" href="standard.html" />
     <link rel="prev" title="LGD" href="lgd.html" /> 
 </head>
 
@@ -107,6 +108,10 @@
 <li class="toctree-l2"><a class="reference internal" href="#Market-Driven">Market Driven</a></li>
 </ul>
 </li>
+</ul>
+<p class="caption"><span class="caption-text">PROJECTIONS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="standard.html">Standard Loans</a></li>
 </ul>
 
             
@@ -496,8 +501,8 @@ div.rendered_html tbody tr:hover {
 <ul class="simple">
 <li><p>Number of Loans: 20</p></li>
 <li><p>Total Outstanding: $2,000,000</p></li>
-<li><p>Expected Loss: $12,703.68</p></li>
-<li><p>Required Equity (99.95% VaR): $156,246.93</p></li>
+<li><p>Expected Loss: $42,678.71</p></li>
+<li><p>Required Equity (99.95% VaR): $480,806.28</p></li>
 </ul>
 </div>
 </div>
@@ -506,7 +511,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area rendered_html docutils container">
-<table><thead><tr><th class="loan-table"></th><th class="loan-table">Loan 1</th> <th class="loan-table">Loan 2</th> <th class="loan-table">Loan 3</th></tr></thead><tbody><tr><td class="loan-table">Amount</td><td class="loan-table">143,283.89</td> <td class="loan-table">187,275.72</td> <td class="loan-table">169,440.39</td></tr><tr><td class="loan-table">Probability<br>of<br>Default (PD)</td><td class="loan-table">0.63%</td> <td class="loan-table">0.53%</td> <td class="loan-table">0.56%</td></tr><tr><td class="loan-table">S&P<br>Rating</td><td class="loan-table">BB-</td> <td class="loan-table">BB</td> <td class="loan-table">BB-</td></tr><tr><tr><td class="loan-table">Loss Given<br>Default (LGD)</td><td class="loan-table">44.05%</td> <td class="loan-table">2.98%</td> <td class="loan-table">99.79%</td></tr><td class="loan-table">$\sigma^2_{PD}$</td><td class="loan-table">0.63%</td> <td class="loan-table">0.53%</td> <td class="loan-table">0.56%</td></tr><tr><td class="loan-table">$\sigma^2_{LGD}$</td><td class="loan-table">15.74%</td> <td class="loan-table">15.74%</td> <td class="loan-table">15.74%</td></tr><tr><td class="loan-table">Expected<br>Loss (EL)</td><td class="loan-table">398.25</td> <td class="loan-table">29.52</td> <td class="loan-table">953.10</td></tr><tr><td class="loan-table">Unexpected<br>Loss (UL)</td><td class="loan-table">8,780.08</td> <td class="loan-table">5,889.36</td> <td class="loan-table">13,640.15</td></tr></tbody></table></div>
+<table><thead><tr><th class="loan-table"></th><th class="loan-table">Loan 1</th> <th class="loan-table">Loan 2</th> <th class="loan-table">Loan 3</th></tr></thead><tbody><tr><td class="loan-table">Amount</td><td class="loan-table">122,103.77</td> <td class="loan-table">169,218.43</td> <td class="loan-table">208,677.80</td></tr><tr><td class="loan-table">Probability<br>of<br>Default (PD)</td><td class="loan-table">0.30%</td> <td class="loan-table">0.90%</td> <td class="loan-table">0.21%</td></tr><tr><td class="loan-table">S&P<br>Rating</td><td class="loan-table">BB+</td> <td class="loan-table">B+</td> <td class="loan-table">BBB-</td></tr><tr><tr><td class="loan-table">Loss Given<br>Default (LGD)</td><td class="loan-table">99.25%</td> <td class="loan-table">95.18%</td> <td class="loan-table">0.03%</td></tr><td class="loan-table">$\sigma^2_{PD}$</td><td class="loan-table">0.30%</td> <td class="loan-table">0.89%</td> <td class="loan-table">0.21%</td></tr><tr><td class="loan-table">$\sigma^2_{LGD}$</td><td class="loan-table">21.02%</td> <td class="loan-table">21.02%</td> <td class="loan-table">21.02%</td></tr><tr><td class="loan-table">Expected<br>Loss (EL)</td><td class="loan-table">361.82</td> <td class="loan-table">1,445.37</td> <td class="loan-table">0.11</td></tr><tr><td class="loan-table">Unexpected<br>Loss (UL)</td><td class="loan-table">7,307.84</td> <td class="loan-table">17,216.24</td> <td class="loan-table">4,375.26</td></tr></tbody></table></div>
 </div>
 <p>We can do quick math on each loan to find the interest rate required to meet hurdle:</p>
 <div class="nbinput nblast docutils container">
@@ -533,7 +538,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area rendered_html docutils container">
-<table class="loan-table"><thead><tr><th class="loan-table"></th><th class="loan-table">Loan 1</th> <th class="loan-table">Loan 2</th> <th class="loan-table">Loan 3</th></tr></thead><tbody><tr><td class="loan-table">Amount</td><td class="loan-table">143,283.89</td> <td class="loan-table">187,275.72</td> <td class="loan-table">169,440.39</td></tr><tr><td class="loan-table">Probability<br>of<br>Default (PD)</td><td class="loan-table">0.63%</td> <td class="loan-table">0.53%</td> <td class="loan-table">0.56%</td></tr><tr><td class="loan-table">Loss Given<br>Default (LGD)</td><td class="loan-table">44.05%</td> <td class="loan-table">2.98%</td> <td class="loan-table">99.79%</td></tr><tr><td class="loan-table">Expected<br>Loss (EL)</td><td class="loan-table">398.25</td> <td class="loan-table">29.52</td> <td class="loan-table">953.10</td></tr><tr><td class="loan-table">Required<br>Interest Rate</td><td class="loan-table">12.28%</td> <td class="loan-table">12.02%</td> <td class="loan-table">12.56%</td></tr></tbody></table></div>
+<table class="loan-table"><thead><tr><th class="loan-table"></th><th class="loan-table">Loan 1</th> <th class="loan-table">Loan 2</th> <th class="loan-table">Loan 3</th></tr></thead><tbody><tr><td class="loan-table">Amount</td><td class="loan-table">122,103.77</td> <td class="loan-table">169,218.43</td> <td class="loan-table">208,677.80</td></tr><tr><td class="loan-table">Probability<br>of<br>Default (PD)</td><td class="loan-table">0.30%</td> <td class="loan-table">0.90%</td> <td class="loan-table">0.21%</td></tr><tr><td class="loan-table">Loss Given<br>Default (LGD)</td><td class="loan-table">99.25%</td> <td class="loan-table">95.18%</td> <td class="loan-table">0.03%</td></tr><tr><td class="loan-table">Expected<br>Loss (EL)</td><td class="loan-table">361.82</td> <td class="loan-table">1,445.37</td> <td class="loan-table">0.11</td></tr><tr><td class="loan-table">Required<br>Interest Rate</td><td class="loan-table">12.30%</td> <td class="loan-table">12.85%</td> <td class="loan-table">12.00%</td></tr></tbody></table></div>
 </div>
 <p>Unsurprisingly, even the lowest risk loan requires at least 12% interest rate. This is way above market for these types of loans.</p>
 <p class="p-break"></p><p>How then do we get a lower hurdle rate?</p>
@@ -571,15 +576,185 @@ div.rendered_html tbody tr:hover {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area rendered_html docutils container">
-<table class="loan-table"><thead><tr><th class="loan-table"></th><th class="loan-table">Loan 1</th> <th class="loan-table">Loan 2</th> <th class="loan-table">Loan 3</th></tr></thead><tbody><tr><td class="loan-table">Amount</td><td class="loan-table">143,283.89</td> <td class="loan-table">187,275.72</td> <td class="loan-table">169,440.39</td></tr><tr><td class="loan-table">Probability<br>of<br>Default (PD)</td><td class="loan-table">0.63%</td> <td class="loan-table">0.53%</td> <td class="loan-table">0.56%</td></tr><tr><td class="loan-table">Loss Given<br>Default (LGD)</td><td class="loan-table">44.05%</td> <td class="loan-table">2.98%</td> <td class="loan-table">99.79%</td></tr><tr><td class="loan-table">Expected<br>Loss (EL)</td><td class="loan-table">398.25</td> <td class="loan-table">29.52</td> <td class="loan-table">953.10</td></tr><tr><td class="loan-table">Required<br>Interest Rate</td><td class="loan-table">3.83%</td> <td class="loan-table">3.30%</td> <td class="loan-table">4.29%</td></tr></tbody></table></div>
+<table class="loan-table"><thead><tr><th class="loan-table"></th><th class="loan-table">Loan 1</th> <th class="loan-table">Loan 2</th> <th class="loan-table">Loan 3</th></tr></thead><tbody><tr><td class="loan-table">Amount</td><td class="loan-table">122,103.77</td> <td class="loan-table">169,218.43</td> <td class="loan-table">208,677.80</td></tr><tr><td class="loan-table">Probability<br>of<br>Default (PD)</td><td class="loan-table">0.30%</td> <td class="loan-table">0.90%</td> <td class="loan-table">0.21%</td></tr><tr><td class="loan-table">Loss Given<br>Default (LGD)</td><td class="loan-table">99.25%</td> <td class="loan-table">95.18%</td> <td class="loan-table">0.03%</td></tr><tr><td class="loan-table">Expected<br>Loss (EL)</td><td class="loan-table">361.82</td> <td class="loan-table">1,445.37</td> <td class="loan-table">0.11</td></tr><tr><td class="loan-table">Required<br>Interest Rate</td><td class="loan-table">3.83%</td> <td class="loan-table">4.77%</td> <td class="loan-table">3.19%</td></tr></tbody></table></div>
 </div>
 <p>We can see how the mix of debt and equity has helped to improve loan pricing, which should make Fico more competitive in the market place.</p>
 <p class="p-break"></p></div>
 <div class="section" id="Market-Driven">
 <h2>Market Driven<a class="headerlink" href="#Market-Driven" title="Permalink to this headline">¶</a></h2>
+<p>Interest rates charged on government bonds, corporate debt, or any other loan are generally understood to be derived from the following components:</p>
+<ol class="arabic simple">
+<li><p>Real risk-free rate</p>
 <ul class="simple">
-<li><p>TBD</p></li>
+<li><p>generalyl understood to be a function of the “inherent” time value of money, which requires an incentive to delay consumption.</p></li>
+<li><p>I actually believe it has more to do with increasing real consumption; my working theory is the real risk-free is the value-add created by increasing consumption.</p></li>
 </ul>
+</li>
+<li><p>Inflation premium</p></li>
+<li><p>Liquidity premium</p>
+<ul class="simple">
+<li><p>understood as relative cost to sell the debt</p></li>
+<li><p>smaller amounts, poorer credit risks, less desirable jurisdictions, lower coupons</p></li>
+</ul>
+</li>
+<li><p>Credit Risk premium</p></li>
+<li><p>Margin</p>
+<ul class="simple">
+<li><p>in an efficient bond market, pricing theory dictates that there would be not “profit” to the holder (or the issuer).</p></li>
+<li><p>but as a service provider, margin can be incorporated</p></li>
+</ul>
+</li>
+</ol>
+<p>These factors are observable, although every borrower / loan has its unique qualities that will alter the components slightly from observable values.</p>
+<p>So all-in rate derived as:</p>
+<div class="math notranslate nohighlight">
+\[r + r_{inf} + r_{lqd} + r_{cred} + r_{prof}\]</div>
+<p>We can infer the components from available market data, such as this chart of corporate bond yields.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">matplotlib.dates</span> <span class="kn">import</span> <span class="n">YearLocator</span><span class="p">,</span> <span class="n">DateFormatter</span>
+<span class="kn">from</span> <span class="nn">matplotlib.ticker</span> <span class="kn">import</span> <span class="n">FuncFormatter</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">yields</span> <span class="o">=</span> <span class="n">get_yields</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">yields</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">DateFormatter</span><span class="p">(</span><span class="s1">&#39;%Y&#39;</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">labelrotation</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_xticklabels</span><span class="p">():</span>
+    <span class="n">label</span><span class="o">.</span><span class="n">set_horizontalalignment</span><span class="p">(</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="_images/pricing_17_0.png" src="_images/pricing_17_0.png" />
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">infsers</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;DGS10&#39;</span><span class="p">,</span> <span class="s1">&#39;DFII10&#39;</span><span class="p">,</span> <span class="s1">&#39;T10YIE&#39;</span><span class="p">]</span>
+<span class="n">frames</span> <span class="o">=</span> <span class="p">[</span><span class="n">framer</span><span class="p">(</span><span class="n">ser</span><span class="p">)</span> <span class="k">for</span> <span class="n">ser</span> <span class="ow">in</span> <span class="n">infsers</span><span class="p">]</span>
+
+<span class="n">infs</span> <span class="o">=</span> <span class="n">frames</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">frames</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+    <span class="n">infs</span> <span class="o">=</span> <span class="n">infs</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;Date&#39;</span><span class="p">)</span>
+<span class="n">infs</span> <span class="o">=</span> <span class="n">infs</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;Date&#39;</span><span class="p">)</span>
+
+<span class="n">infs</span> <span class="o">=</span> <span class="n">infs</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">numeric_coerce</span><span class="p">)</span>
+<span class="n">infs</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;US10&#39;</span><span class="p">,</span> <span class="s1">&#39;US10-R&#39;</span><span class="p">,</span> <span class="s1">&#39;Inf10-E&#39;</span><span class="p">]</span>
+<span class="n">infs</span> <span class="o">/=</span> <span class="mi">100</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">infs</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">DateFormatter</span><span class="p">(</span><span class="s1">&#39;%Y&#39;</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">labelrotation</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_xticklabels</span><span class="p">():</span>
+    <span class="n">label</span><span class="o">.</span><span class="n">set_horizontalalignment</span><span class="p">(</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="_images/pricing_19_0.png" src="_images/pricing_19_0.png" />
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">us</span><span class="p">,</span> <span class="n">real</span><span class="p">,</span> <span class="n">inf</span> <span class="o">=</span> <span class="n">infs</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<p><span class="math notranslate nohighlight">\(r + r_{inf}\)</span> = -1.04% + 2.22% = 1.18%</p>
+<p>US 10 Year = 1.18%</p>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">aaa</span> <span class="o">=</span> <span class="n">yields</span><span class="o">.</span><span class="n">AAA</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">lqd</span> <span class="o">=</span> <span class="n">aaa</span> <span class="o">-</span> <span class="n">us</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<p>AAA Corp = 1.71%</p>
+<p><span class="math notranslate nohighlight">\(r_{lqd} = r_{aaa} - r - r_{inf}\)</span> = 1.71% -1.04% - 2.22% = 0.53%</p>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">bbb</span> <span class="o">=</span> <span class="n">yields</span><span class="o">.</span><span class="n">BBB</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">cred</span> <span class="o">=</span> <span class="n">bbb</span> <span class="o">-</span> <span class="n">aaa</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<p>BBB Corp = 2.14%</p>
+<p><span class="math notranslate nohighlight">\(r_{cred} = r_{bbb} - r - r_{inf} - r_{lqd}\)</span> = 2.14% - -1.04% - 2.22% - 0.53%= 0.43%</p>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<p><span class="math notranslate nohighlight">\(r + r_{inf} + r_{lqd} + r_{cred}\)</span></p>
+<p>= -1.04% + 2.22% + 0.53% + 0.43%</p>
+<p>= 2.14%</p>
+</div>
+</div>
 </div>
 </div>
 
@@ -589,6 +764,7 @@ div.rendered_html tbody tr:hover {
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="standard.html" class="btn btn-neutral float-right" title="Standard Loans" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
         <a href="lgd.html" class="btn btn-neutral float-left" title="LGD" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
