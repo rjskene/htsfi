@@ -1,3 +1,4 @@
 {
-  "python.pythonPath": "/Users/spindicate/.pyenv/shims/python"
+  "python.pythonPath": "/Users/spindicate/.pyenv/shims/python",
+  "restructuredtext.linter.disabled": true
 }

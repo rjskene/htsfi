@@ -4,7 +4,7 @@ import shutil
 from pathlib import Path
 
 import matplotlib
-
+{}
 def update_style():
     mpldir = os.path.join(matplotlib.get_configdir(), 'stylelib')
 
