@@ -36,6 +36,7 @@ nbsphinx==0.8.1
 nest-asyncio==1.4.3
 notebook==6.2.0
 numpy==1.19.5
+numpy_financial==1.0.0
 packaging==20.8
 pandas==1.2.0
 pandocfilters==1.4.3
