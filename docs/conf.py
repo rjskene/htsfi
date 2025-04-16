@@ -35,7 +35,6 @@ extensions = [
     'custom_nbsphinx',
     'sphinx.ext.mathjax',
     'IPython.sphinxext.ipython_console_highlighting',
-    'sphinx_markdown_tables'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
