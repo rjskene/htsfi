@@ -27,7 +27,7 @@ PD_KEY = {v:k for k,v in SPRAT_KEY.items()}
 def move_to_doc_folder(filename):
     dir_ = os.getcwd()
     dir_docs = dir_ + '/docs/'
-
+    print (dir_ + '/' + filename, dir_docs + filename)
     copyfile(dir_ + '/' + filename, dir_docs + filename)
 
 def make_warning(title, body, additional = ''):
