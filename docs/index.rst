@@ -9,12 +9,13 @@ Business Plan & Credit Risk Model
 ************
 
 .. toctree::
+   :caption: HTS CUSTOMER FINANCE PROGRAM
    :maxdepth: 3
 
    fico
 
 .. toctree::
-   :caption: LOSS MODEL
+   :caption: CREDIT MODEL
    :maxdepth: 3
       
    loss  
