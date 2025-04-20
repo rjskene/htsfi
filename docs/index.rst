@@ -1,10 +1,11 @@
-.. FICOFORD documentation master file, created by
+.. HTS Customer Finance Program documentation master file, created by
    sphinx-quickstart on Tue Feb  2 14:51:21 2021.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
 ************
-FICO's For ... 
+HTS Customer Finance Program
+Business Plan & Credit Risk Model
 ************
 
 .. toctree::
