@@ -1,5 +1,5 @@
 import os
-from shutil import copyfile
+from shutil import copyfile, copy2
 import numpy as np
 from scipy.linalg import eig, eigh, cholesky, svd, eigvals, schur
 
@@ -28,7 +28,7 @@ def move_to_doc_folder(filename):
     dir_ = os.getcwd()
     dir_docs = dir_ + '/docs/'
     print (dir_ + '/' + filename, dir_docs + filename)
-    copyfile(dir_ + '/' + filename, dir_docs + filename)
+    copy2(dir_ + '/' + filename, dir_docs + filename)
 
 def make_warning(title, body, additional = ''):
     html = '<div class="admonition warning">'
