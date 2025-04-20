@@ -8,7 +8,6 @@ HTS Customer Finance Program
 ************
 
 .. toctree::
-   :caption: BUSINESS PLAN
    :maxdepth: 3
 
    fico
