@@ -17,17 +17,12 @@ Business Plan & Credit Risk Model
    :caption: LOSS MODEL
    :maxdepth: 3
       
-   loss
-
-.. toctree::
-   :caption: COMPONENTS
-   :maxdepth: 3
-   
+   loss  
    lgd
    pricing
 
 .. toctree::
-   :caption: PROJECTIONS
+   :caption: FINANCIAL MODEL
    :maxdepth: 3
    
    standard
