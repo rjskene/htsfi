@@ -5,7 +5,6 @@
 
 ************
 HTS Customer Finance Program
-Business Plan & Credit Risk Model
 ************
 
 .. toctree::
