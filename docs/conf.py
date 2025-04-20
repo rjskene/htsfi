@@ -17,9 +17,9 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'FICOFORD'
+project = 'HTS Customer Finance Program'
 copyright = '2021, rskene'
-author = 'rskene'
+author = 'Ryan Skene'
 
 
 # -- General configuration ---------------------------------------------------
