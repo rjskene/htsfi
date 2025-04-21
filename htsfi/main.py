@@ -1,4 +1,8 @@
 import os
+import glob
+import shutil
+from pathlib import Path
+
 from shutil import copyfile, copy2
 import numpy as np
 from scipy.linalg import eig, eigh, cholesky, svd, eigvals, schur
@@ -6,6 +10,7 @@ from scipy.linalg import eig, eigh, cholesky, svd, eigvals, schur
 import pandas as pd
 import requests
 
+import matplotlib
 import matplotlib.pyplot as plt
 from matplotlib.dates import YearLocator, DateFormatter
 from matplotlib.ticker import FuncFormatter
@@ -30,13 +35,6 @@ def move_to_doc_folder(filename):
     print (dir_ + '/' + filename, dir_docs + filename)
     copy2(dir_ + '/' + filename, dir_docs + filename)
 
-import os
-import glob
-import shutil
-from pathlib import Path
-
-import matplotlib
-
 def update_style():
     mpldir = os.path.join(matplotlib.get_configdir(), 'stylelib')
 
@@ -46,7 +44,7 @@ def update_style():
 
     PATH = os.getcwd()
     EXT = 'mplstyle'
-    style_files = glob.glob(os.path.join(PATH, f'*.{EXT}'))
+    style_files = glob.glob(os.path.join(PATH, '../', f'*.{EXT}')) # style file is in the parent directory
 
     for _path_file in style_files:
         _, fname = os.path.split(_path_file)
