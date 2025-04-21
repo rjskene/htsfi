@@ -4,7 +4,9 @@
    contain the root `toctree` directive.
 
 ************
-HTS Customer Finance Program
+Customer Finance Program
+Business Plan and Credit Policy
+HTS Engineering Ltd.
 ************
 
 .. toctree::
